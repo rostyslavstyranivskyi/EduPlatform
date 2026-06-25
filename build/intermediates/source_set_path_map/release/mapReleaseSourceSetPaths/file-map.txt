@@ -1,0 +1,57 @@
+com.eduplatform.app-pngs-0 C:\Users\rtyot\Downloads\test1\EduPlatform\app\build\generated\res\pngs\release
+com.eduplatform.app-resValues-1 C:\Users\rtyot\Downloads\test1\EduPlatform\app\build\generated\res\resValues\release
+com.eduplatform.app-packageReleaseResources-2 C:\Users\rtyot\Downloads\test1\EduPlatform\app\build\intermediates\incremental\release\packageReleaseResources\merged.dir
+com.eduplatform.app-packageReleaseResources-3 C:\Users\rtyot\Downloads\test1\EduPlatform\app\build\intermediates\incremental\release\packageReleaseResources\stripped.dir
+com.eduplatform.app-release-4 C:\Users\rtyot\Downloads\test1\EduPlatform\app\build\intermediates\merged_res\release\mergeReleaseResources
+com.eduplatform.app-main-5 C:\Users\rtyot\Downloads\test1\EduPlatform\app\src\main\res
+com.eduplatform.app-release-6 C:\Users\rtyot\Downloads\test1\EduPlatform\app\src\release\res
+com.eduplatform.app-material3-release-7 D:\android stud\caches\8.9\transforms\081ba1e537580bdd81ac6e20e169464b\transformed\material3-release\res
+com.eduplatform.app-core-viewtree-1.0.0-8 D:\android stud\caches\8.9\transforms\0ada203cc8b4a4b0f81d60bb85ac531e\transformed\core-viewtree-1.0.0\res
+com.eduplatform.app-profileinstaller-1.4.0-9 D:\android stud\caches\8.9\transforms\0c661dab86fae181b1d42081d45093e6\transformed\profileinstaller-1.4.0\res
+com.eduplatform.app-navigation-compose-2.7.7-10 D:\android stud\caches\8.9\transforms\0f1a340d87da18395b998db700c82787\transformed\navigation-compose-2.7.7\res
+com.eduplatform.app-core-runtime-2.2.0-11 D:\android stud\caches\8.9\transforms\1cb7bade5061a8e3ffb40c27bf7428a5\transformed\core-runtime-2.2.0\res
+com.eduplatform.app-datastore-core-release-12 D:\android stud\caches\8.9\transforms\20c4ec06e65ca4e0b2d62a928b4b1f93\transformed\datastore-core-release\res
+com.eduplatform.app-coil-base-2.6.0-13 D:\android stud\caches\8.9\transforms\20e79369f197f9a0209589313b7f0237\transformed\coil-base-2.6.0\res
+com.eduplatform.app-runtime-saveable-14 D:\android stud\caches\8.9\transforms\2ba1427df606c36c12280861fcd0b588\transformed\runtime-saveable\res
+com.eduplatform.app-lifecycle-viewmodel-compose-release-15 D:\android stud\caches\8.9\transforms\2c2b0a13d6a4a3d7a0981a363d2c0e12\transformed\lifecycle-viewmodel-compose-release\res
+com.eduplatform.app-animation-core-release-16 D:\android stud\caches\8.9\transforms\2e86ad471d90784d4c60943d9c73dba3\transformed\animation-core-release\res
+com.eduplatform.app-navigation-common-ktx-2.7.7-17 D:\android stud\caches\8.9\transforms\3305da638a41cc7f95b94a8c7dc0d4c9\transformed\navigation-common-ktx-2.7.7\res
+com.eduplatform.app-lifecycle-viewmodel-ktx-2.9.4-18 D:\android stud\caches\8.9\transforms\425447504a986ce5a733964d6fc8767a\transformed\lifecycle-viewmodel-ktx-2.9.4\res
+com.eduplatform.app-lifecycle-livedata-2.9.4-19 D:\android stud\caches\8.9\transforms\4368d5f8fc9d2baee5aa3655af29eedb\transformed\lifecycle-livedata-2.9.4\res
+com.eduplatform.app-foundation-layout-release-20 D:\android stud\caches\8.9\transforms\44714be055d8b8f8be77f88328f9e49e\transformed\foundation-layout-release\res
+com.eduplatform.app-foundation-release-21 D:\android stud\caches\8.9\transforms\49805022357371f049d0e745fcf9f3ff\transformed\foundation-release\res
+com.eduplatform.app-savedstate-ktx-1.3.2-22 D:\android stud\caches\8.9\transforms\52d7a5440b702a59441909f9c353eed7\transformed\savedstate-ktx-1.3.2\res
+com.eduplatform.app-hilt-navigation-compose-1.2.0-23 D:\android stud\caches\8.9\transforms\581a0816af35cbb97a38079be3931cf0\transformed\hilt-navigation-compose-1.2.0\res
+com.eduplatform.app-core-ktx-1.15.0-24 D:\android stud\caches\8.9\transforms\5c5747d07272f37f7b1e71eb50c8df21\transformed\core-ktx-1.15.0\res
+com.eduplatform.app-customview-poolingcontainer-1.0.0-25 D:\android stud\caches\8.9\transforms\622a5495930062f0fe6e2b067172646c\transformed\customview-poolingcontainer-1.0.0\res
+com.eduplatform.app-lifecycle-runtime-release-26 D:\android stud\caches\8.9\transforms\6e5aab9f868e82538b7b39494aae6906\transformed\lifecycle-runtime-release\res
+com.eduplatform.app-navigation-runtime-2.7.7-27 D:\android stud\caches\8.9\transforms\6f8d2c65a5db6da20d9b8a3e80f01254\transformed\navigation-runtime-2.7.7\res
+com.eduplatform.app-lifecycle-runtime-compose-release-28 D:\android stud\caches\8.9\transforms\7a8815a035791cb3d7a9ae77bff04cd4\transformed\lifecycle-runtime-compose-release\res
+com.eduplatform.app-datastore-preferences-release-29 D:\android stud\caches\8.9\transforms\7ac6caf601b0b32c4febc31618abfd16\transformed\datastore-preferences-release\res
+com.eduplatform.app-startup-runtime-1.1.1-30 D:\android stud\caches\8.9\transforms\813a76c4e32c02358e43080c0e308f4a\transformed\startup-runtime-1.1.1\res
+com.eduplatform.app-material-icons-extended-release-31 D:\android stud\caches\8.9\transforms\8fc3bcea58e70d38cf791fdcc8252030\transformed\material-icons-extended-release\res
+com.eduplatform.app-navigation-runtime-ktx-2.7.7-32 D:\android stud\caches\8.9\transforms\8fcd7a81c4f7e29fbb1fa681efa879a8\transformed\navigation-runtime-ktx-2.7.7\res
+com.eduplatform.app-emoji2-1.4.0-33 D:\android stud\caches\8.9\transforms\96929ecc76693f90a7794f2426acd3b5\transformed\emoji2-1.4.0\res
+com.eduplatform.app-graphics-path-1.0.1-34 D:\android stud\caches\8.9\transforms\97447ef5eaefa559d0dc8514ad8af33d\transformed\graphics-path-1.0.1\res
+com.eduplatform.app-activity-compose-1.9.0-35 D:\android stud\caches\8.9\transforms\9ab45e92b3cd0d4e5e3a086ac7330f13\transformed\activity-compose-1.9.0\res
+com.eduplatform.app-activity-ktx-1.9.0-36 D:\android stud\caches\8.9\transforms\9dbdcbbad299e7b690f33de476d512a6\transformed\activity-ktx-1.9.0\res
+com.eduplatform.app-appcompat-resources-1.6.1-37 D:\android stud\caches\8.9\transforms\9edf88a566bc63b0ede8d800911a6e6c\transformed\appcompat-resources-1.6.1\res
+com.eduplatform.app-material-icons-core-release-38 D:\android stud\caches\8.9\transforms\9ffbc320cffd66da1e167b540b15f99a\transformed\material-icons-core-release\res
+com.eduplatform.app-tracing-1.2.0-39 D:\android stud\caches\8.9\transforms\a0e8033efc66d0abc93816781234fdb5\transformed\tracing-1.2.0\res
+com.eduplatform.app-lifecycle-livedata-core-2.9.4-40 D:\android stud\caches\8.9\transforms\a100337bf3525df2fb702dd336f2681b\transformed\lifecycle-livedata-core-2.9.4\res
+com.eduplatform.app-animation-release-41 D:\android stud\caches\8.9\transforms\a5e28cc2e8a7f298d009775fcfa55642\transformed\animation-release\res
+com.eduplatform.app-core-1.15.0-42 D:\android stud\caches\8.9\transforms\a9b17267577daf04c42c9c0761f7f59b\transformed\core-1.15.0\res
+com.eduplatform.app-navigation-common-2.7.7-43 D:\android stud\caches\8.9\transforms\b0ac12e8f6356b6035d611f96b60a1b6\transformed\navigation-common-2.7.7\res
+com.eduplatform.app-lifecycle-process-2.9.4-44 D:\android stud\caches\8.9\transforms\b8643b2015efbabc523910c03bfb1ba7\transformed\lifecycle-process-2.9.4\res
+com.eduplatform.app-lifecycle-viewmodel-savedstate-release-45 D:\android stud\caches\8.9\transforms\b957aa06e56b9193a6c276a86135eb89\transformed\lifecycle-viewmodel-savedstate-release\res
+com.eduplatform.app-lifecycle-viewmodel-release-46 D:\android stud\caches\8.9\transforms\ba8dab8d6c515c8b2a1dcfe7d94318b5\transformed\lifecycle-viewmodel-release\res
+com.eduplatform.app-hilt-navigation-1.2.0-47 D:\android stud\caches\8.9\transforms\c0fdc71a09e35760b5e8dc4b357e83d8\transformed\hilt-navigation-1.2.0\res
+com.eduplatform.app-fragment-1.5.1-48 D:\android stud\caches\8.9\transforms\c9bb0c1c6dd65aaf497d18441b1ae0cd\transformed\fragment-1.5.1\res
+com.eduplatform.app-savedstate-release-49 D:\android stud\caches\8.9\transforms\d1789a56575a78563d050fe576c58602\transformed\savedstate-release\res
+com.eduplatform.app-ui-graphics-release-50 D:\android stud\caches\8.9\transforms\d9132fec3f7453266a247366709b576b\transformed\ui-graphics-release\res
+com.eduplatform.app-lifecycle-livedata-core-ktx-2.9.4-51 D:\android stud\caches\8.9\transforms\e2042a744276de29622515a70037f96b\transformed\lifecycle-livedata-core-ktx-2.9.4\res
+com.eduplatform.app-datastore-release-52 D:\android stud\caches\8.9\transforms\eff17eb00688ca56e93a1a0bc054cdfa\transformed\datastore-release\res
+com.eduplatform.app-material-ripple-release-53 D:\android stud\caches\8.9\transforms\f5f39410542f871a4541301ec92ad408\transformed\material-ripple-release\res
+com.eduplatform.app-ui-release-54 D:\android stud\caches\8.9\transforms\f852279d4c22a5a67250210da0e3091e\transformed\ui-release\res
+com.eduplatform.app-annotation-experimental-1.4.1-55 D:\android stud\caches\8.9\transforms\fd9d856c9596dfa85475e474d9d4f68b\transformed\annotation-experimental-1.4.1\res
+com.eduplatform.app-activity-1.9.0-56 D:\android stud\caches\8.9\transforms\fec435bc516cb3b05eb0777c8c93dff4\transformed\activity-1.9.0\res

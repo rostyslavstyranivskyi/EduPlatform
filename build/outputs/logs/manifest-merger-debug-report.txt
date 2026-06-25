@@ -1,0 +1,427 @@
+-- Merging decision tree log ---
+manifest
+ADDED from C:\Users\rtyot\Downloads\test1\EduPlatform\app\src\main\AndroidManifest.xml:2:1-33:12
+INJECTED from C:\Users\rtyot\Downloads\test1\EduPlatform\app\src\main\AndroidManifest.xml:2:1-33:12
+INJECTED from C:\Users\rtyot\Downloads\test1\EduPlatform\app\src\main\AndroidManifest.xml:2:1-33:12
+INJECTED from C:\Users\rtyot\Downloads\test1\EduPlatform\app\src\main\AndroidManifest.xml:2:1-33:12
+MERGED from [androidx.hilt:hilt-navigation-compose:1.2.0] D:\android stud\caches\8.9\transforms\581a0816af35cbb97a38079be3931cf0\transformed\hilt-navigation-compose-1.2.0\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.hilt:hilt-navigation:1.2.0] D:\android stud\caches\8.9\transforms\c0fdc71a09e35760b5e8dc4b357e83d8\transformed\hilt-navigation-1.2.0\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.navigation:navigation-common:2.7.7] D:\android stud\caches\8.9\transforms\b0ac12e8f6356b6035d611f96b60a1b6\transformed\navigation-common-2.7.7\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.navigation:navigation-runtime:2.7.7] D:\android stud\caches\8.9\transforms\6f8d2c65a5db6da20d9b8a3e80f01254\transformed\navigation-runtime-2.7.7\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.navigation:navigation-common-ktx:2.7.7] D:\android stud\caches\8.9\transforms\3305da638a41cc7f95b94a8c7dc0d4c9\transformed\navigation-common-ktx-2.7.7\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.navigation:navigation-runtime-ktx:2.7.7] D:\android stud\caches\8.9\transforms\8fcd7a81c4f7e29fbb1fa681efa879a8\transformed\navigation-runtime-ktx-2.7.7\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.navigation:navigation-compose:2.7.7] D:\android stud\caches\8.9\transforms\0f1a340d87da18395b998db700c82787\transformed\navigation-compose-2.7.7\AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.dagger:hilt-android:2.51.1] D:\android stud\caches\8.9\transforms\9a8574dcec6f0ae539bd129f6d3058b4\transformed\hilt-android-2.51.1\AndroidManifest.xml:16:1-19:12
+MERGED from [androidx.fragment:fragment:1.5.1] D:\android stud\caches\8.9\transforms\c9bb0c1c6dd65aaf497d18441b1ae0cd\transformed\fragment-1.5.1\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.activity:activity:1.9.0] D:\android stud\caches\8.9\transforms\fec435bc516cb3b05eb0777c8c93dff4\transformed\activity-1.9.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.compose.material3:material3-android:1.3.2] D:\android stud\caches\8.9\transforms\081ba1e537580bdd81ac6e20e169464b\transformed\material3-release\AndroidManifest.xml:17:1-22:12
+MERGED from [io.coil-kt:coil-compose:2.6.0] D:\android stud\caches\8.9\transforms\0272d443cc0635cef262e1981114b50c\transformed\coil-compose-2.6.0\AndroidManifest.xml:2:1-7:12
+MERGED from [io.coil-kt:coil-compose-base:2.6.0] D:\android stud\caches\8.9\transforms\44821f9a7d8767d1d552ad8e5bd28504\transformed\coil-compose-base-2.6.0\AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.accompanist:accompanist-drawablepainter:0.32.0] D:\android stud\caches\8.9\transforms\53b81ebba7fc8de0958c794003bc40b6\transformed\accompanist-drawablepainter-0.32.0\AndroidManifest.xml:17:1-23:12
+MERGED from [androidx.compose.material:material-icons-extended-android:1.7.8] D:\android stud\caches\8.9\transforms\8fc3bcea58e70d38cf791fdcc8252030\transformed\material-icons-extended-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.material:material-icons-core-android:1.7.8] D:\android stud\caches\8.9\transforms\9ffbc320cffd66da1e167b540b15f99a\transformed\material-icons-core-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.loader:loader:1.0.0] D:\android stud\caches\8.9\transforms\e9c6b6ad05941ec4dfe541b69e130a96\transformed\loader-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [io.coil-kt:coil:2.6.0] D:\android stud\caches\8.9\transforms\92e361f3aacdc169175dcf8a081dbba7\transformed\coil-2.6.0\AndroidManifest.xml:2:1-7:12
+MERGED from [io.coil-kt:coil-base:2.6.0] D:\android stud\caches\8.9\transforms\20e79369f197f9a0209589313b7f0237\transformed\coil-base-2.6.0\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-tooling-data-android:1.9.0] D:\android stud\caches\8.9\transforms\2bdeb9422fccab5449ee06db393d2ea6\transformed\ui-tooling-data\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-tooling-preview-android:1.9.0] D:\android stud\caches\8.9\transforms\0552b09a3ea9287c7519b00f995132f2\transformed\ui-tooling-preview\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.compose.ui:ui-tooling-android:1.9.0] D:\android stud\caches\8.9\transforms\94dfba1a092dc2f4ca809958b6c02625\transformed\ui-tooling\AndroidManifest.xml:17:1-28:12
+MERGED from [androidx.compose.material:material-android:1.8.3] D:\android stud\caches\8.9\transforms\453ec43cb45385aae8c453ad60c2e642\transformed\material-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.material:material-ripple-android:1.8.3] D:\android stud\caches\8.9\transforms\f5f39410542f871a4541301ec92ad408\transformed\material-ripple-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.foundation:foundation-android:1.9.0] D:\android stud\caches\8.9\transforms\9e5b60f0cc1e2b3e0a2472f6db687bb7\transformed\foundation-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.foundation:foundation-layout-android:1.9.0] D:\android stud\caches\8.9\transforms\f0bba2e8c5d52c14f595dd5300c446da\transformed\foundation-layout\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.animation:animation-core-android:1.9.0] D:\android stud\caches\8.9\transforms\8d81d8e70c9a28929e2b5f931e990d32\transformed\animation-core\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.animation:animation-android:1.9.0] D:\android stud\caches\8.9\transforms\c91c18ad198ef9a9896d9d341638e1ae\transformed\animation\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-util-android:1.9.0] D:\android stud\caches\8.9\transforms\61ae798405d9541002712ba4d33563c6\transformed\ui-util\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-unit-android:1.9.0] D:\android stud\caches\8.9\transforms\340904db2977622411b6638672187f0a\transformed\ui-unit\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-graphics-android:1.9.0] D:\android stud\caches\8.9\transforms\d9132fec3f7453266a247366709b576b\transformed\ui-graphics-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-geometry-android:1.9.0] D:\android stud\caches\8.9\transforms\6e7e7c6ba1c27630ed64a4708bf6fc0c\transformed\ui-geometry\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-text-android:1.9.0] D:\android stud\caches\8.9\transforms\d065e748fbb9c06b61dd5e210f6a10b9\transformed\ui-text\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.emoji2:emoji2:1.4.0] D:\android stud\caches\8.9\transforms\96929ecc76693f90a7794f2426acd3b5\transformed\emoji2-1.4.0\AndroidManifest.xml:17:1-35:12
+MERGED from [androidx.lifecycle:lifecycle-process:2.9.4] D:\android stud\caches\8.9\transforms\b8643b2015efbabc523910c03bfb1ba7\transformed\lifecycle-process-2.9.4\AndroidManifest.xml:17:1-35:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.9.4] D:\android stud\caches\8.9\transforms\1e6cd0ee94de0adb5a17ac3ea1b6193e\transformed\lifecycle-viewmodel-2.9.4\AndroidManifest.xml:2:1-5:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-android:2.9.4] D:\android stud\caches\8.9\transforms\ba8dab8d6c515c8b2a1dcfe7d94318b5\transformed\lifecycle-viewmodel-release\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.9.4] D:\android stud\caches\8.9\transforms\e2042a744276de29622515a70037f96b\transformed\lifecycle-livedata-core-ktx-2.9.4\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx-android:2.9.4] D:\android stud\caches\8.9\transforms\20ab9aca721338d77b14f8dbfb3255e8\transformed\lifecycle-runtime-ktx\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] D:\android stud\caches\8.9\transforms\36965c3764fda17df0c0bb630d1f7b90\transformed\viewpager-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.customview:customview:1.0.0] D:\android stud\caches\8.9\transforms\b8d667de83766afa6725f2586495a8b1\transformed\customview-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.appcompat:appcompat-resources:1.6.1] D:\android stud\caches\8.9\transforms\9edf88a566bc63b0ede8d800911a6e6c\transformed\appcompat-resources-1.6.1\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] D:\android stud\caches\8.9\transforms\b261729f6c3177a60bbe6ea8289d0f12\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] D:\android stud\caches\8.9\transforms\66534c549c4c253d0951c9bc6586b62f\transformed\vectordrawable-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.autofill:autofill:1.0.0] D:\android stud\caches\8.9\transforms\db8a127c541837d3d9183aa666dacdd8\transformed\autofill-1.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] D:\android stud\caches\8.9\transforms\622a5495930062f0fe6e2b067172646c\transformed\customview-poolingcontainer-1.0.0\AndroidManifest.xml:17:1-23:12
+MERGED from [androidx.core:core-ktx:1.15.0] D:\android stud\caches\8.9\transforms\5c5747d07272f37f7b1e71eb50c8df21\transformed\core-ktx-1.15.0\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.graphics:graphics-path:1.0.1] D:\android stud\caches\8.9\transforms\97447ef5eaefa559d0dc8514ad8af33d\transformed\graphics-path-1.0.1\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.core:core:1.15.0] D:\android stud\caches\8.9\transforms\a9b17267577daf04c42c9c0761f7f59b\transformed\core-1.15.0\AndroidManifest.xml:17:1-30:12
+MERGED from [androidx.lifecycle:lifecycle-runtime-android:2.9.4] D:\android stud\caches\8.9\transforms\6e5aab9f868e82538b7b39494aae6906\transformed\lifecycle-runtime-release\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.9.4] D:\android stud\caches\8.9\transforms\425447504a986ce5a733964d6fc8767a\transformed\lifecycle-viewmodel-ktx-2.9.4\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.9.4] D:\android stud\caches\8.9\transforms\a100337bf3525df2fb702dd336f2681b\transformed\lifecycle-livedata-core-2.9.4\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.9.4] D:\android stud\caches\8.9\transforms\4368d5f8fc9d2baee5aa3655af29eedb\transformed\lifecycle-livedata-2.9.4\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate-android:2.9.4] D:\android stud\caches\8.9\transforms\b957aa06e56b9193a6c276a86135eb89\transformed\lifecycle-viewmodel-savedstate-release\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.savedstate:savedstate-android:1.3.2] D:\android stud\caches\8.9\transforms\d1789a56575a78563d050fe576c58602\transformed\savedstate-release\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.savedstate:savedstate-ktx:1.3.2] D:\android stud\caches\8.9\transforms\52d7a5440b702a59441909f9c353eed7\transformed\savedstate-ktx-1.3.2\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.savedstate:savedstate-compose-android:1.3.2] D:\android stud\caches\8.9\transforms\8d3e120d38e7b8f586fe1cb08b05c499\transformed\savedstate-compose\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.runtime:runtime-annotation-android:1.11.3] D:\android stud\caches\8.9\transforms\b3c80c706dc3380490e8d6ebb5cd028f\transformed\runtime-annotation\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.runtime:runtime-android:1.11.3] D:\android stud\caches\8.9\transforms\d416b2ceda599c267c98c0387f9d3080\transformed\runtime\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.runtime:runtime-saveable-android:1.11.3] D:\android stud\caches\8.9\transforms\2ba1427df606c36c12280861fcd0b588\transformed\runtime-saveable\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-runtime-compose-android:2.9.4] D:\android stud\caches\8.9\transforms\7a8815a035791cb3d7a9ae77bff04cd4\transformed\lifecycle-runtime-compose-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-compose-android:2.9.4] D:\android stud\caches\8.9\transforms\2c2b0a13d6a4a3d7a0981a363d2c0e12\transformed\lifecycle-viewmodel-compose-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-android:1.9.0] D:\android stud\caches\8.9\transforms\f852279d4c22a5a67250210da0e3091e\transformed\ui-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.activity:activity-ktx:1.9.0] D:\android stud\caches\8.9\transforms\9dbdcbbad299e7b690f33de476d512a6\transformed\activity-ktx-1.9.0\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.activity:activity-compose:1.9.0] D:\android stud\caches\8.9\transforms\9ab45e92b3cd0d4e5e3a086ac7330f13\transformed\activity-compose-1.9.0\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.datastore:datastore-core-android:1.1.1] D:\android stud\caches\8.9\transforms\20c4ec06e65ca4e0b2d62a928b4b1f93\transformed\datastore-core-release\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.datastore:datastore-android:1.1.1] D:\android stud\caches\8.9\transforms\eff17eb00688ca56e93a1a0bc054cdfa\transformed\datastore-release\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.datastore:datastore-preferences-android:1.1.1] D:\android stud\caches\8.9\transforms\7ac6caf601b0b32c4febc31618abfd16\transformed\datastore-preferences-release\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.annotation:annotation-experimental:1.4.1] D:\android stud\caches\8.9\transforms\fd9d856c9596dfa85475e474d9d4f68b\transformed\annotation-experimental-1.4.1\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] D:\android stud\caches\8.9\transforms\065fc8c5dee0d8e46d8d4e89ee2547ec\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:17:1-27:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] D:\android stud\caches\8.9\transforms\0b326b833283ac990e9b798c510779c9\transformed\interpolator-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.0] D:\android stud\caches\8.9\transforms\0c661dab86fae181b1d42081d45093e6\transformed\profileinstaller-1.4.0\AndroidManifest.xml:17:1-55:12
+MERGED from [androidx.exifinterface:exifinterface:1.3.7] D:\android stud\caches\8.9\transforms\0dc071057038b9e08205df903fb8bb21\transformed\exifinterface-1.3.7\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.startup:startup-runtime:1.1.1] D:\android stud\caches\8.9\transforms\813a76c4e32c02358e43080c0e308f4a\transformed\startup-runtime-1.1.1\AndroidManifest.xml:17:1-33:12
+MERGED from [androidx.arch.core:core-runtime:2.2.0] D:\android stud\caches\8.9\transforms\1cb7bade5061a8e3ffb40c27bf7428a5\transformed\core-runtime-2.2.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.tracing:tracing:1.2.0] D:\android stud\caches\8.9\transforms\a0e8033efc66d0abc93816781234fdb5\transformed\tracing-1.2.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.core:core-viewtree:1.0.0] D:\android stud\caches\8.9\transforms\0ada203cc8b4a4b0f81d60bb85ac531e\transformed\core-viewtree-1.0.0\AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.dagger:dagger-lint-aar:2.51.1] D:\android stud\caches\8.9\transforms\c2a8ea7b22fc45ffdff0cc6887c14725\transformed\dagger-lint-aar-2.51.1\AndroidManifest.xml:16:1-19:12
+	package
+		INJECTED from C:\Users\rtyot\Downloads\test1\EduPlatform\app\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from C:\Users\rtyot\Downloads\test1\EduPlatform\app\src\main\AndroidManifest.xml
+	android:versionCode
+		INJECTED from C:\Users\rtyot\Downloads\test1\EduPlatform\app\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from C:\Users\rtyot\Downloads\test1\EduPlatform\app\src\main\AndroidManifest.xml:2:11-69
+uses-permission#android.permission.INTERNET
+ADDED from C:\Users\rtyot\Downloads\test1\EduPlatform\app\src\main\AndroidManifest.xml:4:5-67
+	android:name
+		ADDED from C:\Users\rtyot\Downloads\test1\EduPlatform\app\src\main\AndroidManifest.xml:4:22-64
+queries
+ADDED from C:\Users\rtyot\Downloads\test1\EduPlatform\app\src\main\AndroidManifest.xml:6:5-12:15
+intent#action:name:android.intent.action.VIEW+category:name:android.intent.category.BROWSABLE+data:scheme:https
+ADDED from C:\Users\rtyot\Downloads\test1\EduPlatform\app\src\main\AndroidManifest.xml:7:9-11:18
+action#android.intent.action.VIEW
+ADDED from C:\Users\rtyot\Downloads\test1\EduPlatform\app\src\main\AndroidManifest.xml:8:13-65
+	android:name
+		ADDED from C:\Users\rtyot\Downloads\test1\EduPlatform\app\src\main\AndroidManifest.xml:8:21-62
+category#android.intent.category.BROWSABLE
+ADDED from C:\Users\rtyot\Downloads\test1\EduPlatform\app\src\main\AndroidManifest.xml:9:13-74
+	android:name
+		ADDED from C:\Users\rtyot\Downloads\test1\EduPlatform\app\src\main\AndroidManifest.xml:9:23-71
+data
+ADDED from C:\Users\rtyot\Downloads\test1\EduPlatform\app\src\main\AndroidManifest.xml:10:13-44
+	android:scheme
+		ADDED from C:\Users\rtyot\Downloads\test1\EduPlatform\app\src\main\AndroidManifest.xml:10:19-41
+application
+ADDED from C:\Users\rtyot\Downloads\test1\EduPlatform\app\src\main\AndroidManifest.xml:14:5-32:19
+INJECTED from C:\Users\rtyot\Downloads\test1\EduPlatform\app\src\main\AndroidManifest.xml:14:5-32:19
+MERGED from [androidx.compose.ui:ui-tooling-android:1.9.0] D:\android stud\caches\8.9\transforms\94dfba1a092dc2f4ca809958b6c02625\transformed\ui-tooling\AndroidManifest.xml:22:5-26:19
+MERGED from [androidx.compose.ui:ui-tooling-android:1.9.0] D:\android stud\caches\8.9\transforms\94dfba1a092dc2f4ca809958b6c02625\transformed\ui-tooling\AndroidManifest.xml:22:5-26:19
+MERGED from [androidx.emoji2:emoji2:1.4.0] D:\android stud\caches\8.9\transforms\96929ecc76693f90a7794f2426acd3b5\transformed\emoji2-1.4.0\AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.emoji2:emoji2:1.4.0] D:\android stud\caches\8.9\transforms\96929ecc76693f90a7794f2426acd3b5\transformed\emoji2-1.4.0\AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.lifecycle:lifecycle-process:2.9.4] D:\android stud\caches\8.9\transforms\b8643b2015efbabc523910c03bfb1ba7\transformed\lifecycle-process-2.9.4\AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.lifecycle:lifecycle-process:2.9.4] D:\android stud\caches\8.9\transforms\b8643b2015efbabc523910c03bfb1ba7\transformed\lifecycle-process-2.9.4\AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.core:core:1.15.0] D:\android stud\caches\8.9\transforms\a9b17267577daf04c42c9c0761f7f59b\transformed\core-1.15.0\AndroidManifest.xml:28:5-89
+MERGED from [androidx.core:core:1.15.0] D:\android stud\caches\8.9\transforms\a9b17267577daf04c42c9c0761f7f59b\transformed\core-1.15.0\AndroidManifest.xml:28:5-89
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] D:\android stud\caches\8.9\transforms\065fc8c5dee0d8e46d8d4e89ee2547ec\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] D:\android stud\caches\8.9\transforms\065fc8c5dee0d8e46d8d4e89ee2547ec\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.0] D:\android stud\caches\8.9\transforms\0c661dab86fae181b1d42081d45093e6\transformed\profileinstaller-1.4.0\AndroidManifest.xml:23:5-53:19
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.0] D:\android stud\caches\8.9\transforms\0c661dab86fae181b1d42081d45093e6\transformed\profileinstaller-1.4.0\AndroidManifest.xml:23:5-53:19
+MERGED from [androidx.startup:startup-runtime:1.1.1] D:\android stud\caches\8.9\transforms\813a76c4e32c02358e43080c0e308f4a\transformed\startup-runtime-1.1.1\AndroidManifest.xml:25:5-31:19
+MERGED from [androidx.startup:startup-runtime:1.1.1] D:\android stud\caches\8.9\transforms\813a76c4e32c02358e43080c0e308f4a\transformed\startup-runtime-1.1.1\AndroidManifest.xml:25:5-31:19
+	android:extractNativeLibs
+		INJECTED from C:\Users\rtyot\Downloads\test1\EduPlatform\app\src\main\AndroidManifest.xml
+	android:appComponentFactory
+		ADDED from [androidx.core:core:1.15.0] D:\android stud\caches\8.9\transforms\a9b17267577daf04c42c9c0761f7f59b\transformed\core-1.15.0\AndroidManifest.xml:28:18-86
+	android:supportsRtl
+		ADDED from C:\Users\rtyot\Downloads\test1\EduPlatform\app\src\main\AndroidManifest.xml:20:9-35
+	android:label
+		ADDED from C:\Users\rtyot\Downloads\test1\EduPlatform\app\src\main\AndroidManifest.xml:18:9-36
+	android:roundIcon
+		ADDED from C:\Users\rtyot\Downloads\test1\EduPlatform\app\src\main\AndroidManifest.xml:19:9-54
+	android:icon
+		ADDED from C:\Users\rtyot\Downloads\test1\EduPlatform\app\src\main\AndroidManifest.xml:17:9-43
+	android:allowBackup
+		ADDED from C:\Users\rtyot\Downloads\test1\EduPlatform\app\src\main\AndroidManifest.xml:16:9-35
+	android:theme
+		ADDED from C:\Users\rtyot\Downloads\test1\EduPlatform\app\src\main\AndroidManifest.xml:21:9-49
+	android:networkSecurityConfig
+		ADDED from C:\Users\rtyot\Downloads\test1\EduPlatform\app\src\main\AndroidManifest.xml:22:9-69
+	android:name
+		ADDED from C:\Users\rtyot\Downloads\test1\EduPlatform\app\src\main\AndroidManifest.xml:15:9-39
+activity#com.eduplatform.MainActivity
+ADDED from C:\Users\rtyot\Downloads\test1\EduPlatform\app\src\main\AndroidManifest.xml:23:9-31:20
+	android:exported
+		ADDED from C:\Users\rtyot\Downloads\test1\EduPlatform\app\src\main\AndroidManifest.xml:25:13-36
+	android:theme
+		ADDED from C:\Users\rtyot\Downloads\test1\EduPlatform\app\src\main\AndroidManifest.xml:26:13-53
+	android:name
+		ADDED from C:\Users\rtyot\Downloads\test1\EduPlatform\app\src\main\AndroidManifest.xml:24:13-41
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from C:\Users\rtyot\Downloads\test1\EduPlatform\app\src\main\AndroidManifest.xml:27:13-30:29
+action#android.intent.action.MAIN
+ADDED from C:\Users\rtyot\Downloads\test1\EduPlatform\app\src\main\AndroidManifest.xml:28:17-69
+	android:name
+		ADDED from C:\Users\rtyot\Downloads\test1\EduPlatform\app\src\main\AndroidManifest.xml:28:25-66
+category#android.intent.category.LAUNCHER
+ADDED from C:\Users\rtyot\Downloads\test1\EduPlatform\app\src\main\AndroidManifest.xml:29:17-77
+	android:name
+		ADDED from C:\Users\rtyot\Downloads\test1\EduPlatform\app\src\main\AndroidManifest.xml:29:27-74
+uses-sdk
+INJECTED from C:\Users\rtyot\Downloads\test1\EduPlatform\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from C:\Users\rtyot\Downloads\test1\EduPlatform\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\rtyot\Downloads\test1\EduPlatform\app\src\main\AndroidManifest.xml
+MERGED from [androidx.hilt:hilt-navigation-compose:1.2.0] D:\android stud\caches\8.9\transforms\581a0816af35cbb97a38079be3931cf0\transformed\hilt-navigation-compose-1.2.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.hilt:hilt-navigation-compose:1.2.0] D:\android stud\caches\8.9\transforms\581a0816af35cbb97a38079be3931cf0\transformed\hilt-navigation-compose-1.2.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.hilt:hilt-navigation:1.2.0] D:\android stud\caches\8.9\transforms\c0fdc71a09e35760b5e8dc4b357e83d8\transformed\hilt-navigation-1.2.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.hilt:hilt-navigation:1.2.0] D:\android stud\caches\8.9\transforms\c0fdc71a09e35760b5e8dc4b357e83d8\transformed\hilt-navigation-1.2.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-common:2.7.7] D:\android stud\caches\8.9\transforms\b0ac12e8f6356b6035d611f96b60a1b6\transformed\navigation-common-2.7.7\AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-common:2.7.7] D:\android stud\caches\8.9\transforms\b0ac12e8f6356b6035d611f96b60a1b6\transformed\navigation-common-2.7.7\AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-runtime:2.7.7] D:\android stud\caches\8.9\transforms\6f8d2c65a5db6da20d9b8a3e80f01254\transformed\navigation-runtime-2.7.7\AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-runtime:2.7.7] D:\android stud\caches\8.9\transforms\6f8d2c65a5db6da20d9b8a3e80f01254\transformed\navigation-runtime-2.7.7\AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-common-ktx:2.7.7] D:\android stud\caches\8.9\transforms\3305da638a41cc7f95b94a8c7dc0d4c9\transformed\navigation-common-ktx-2.7.7\AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-common-ktx:2.7.7] D:\android stud\caches\8.9\transforms\3305da638a41cc7f95b94a8c7dc0d4c9\transformed\navigation-common-ktx-2.7.7\AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-runtime-ktx:2.7.7] D:\android stud\caches\8.9\transforms\8fcd7a81c4f7e29fbb1fa681efa879a8\transformed\navigation-runtime-ktx-2.7.7\AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-runtime-ktx:2.7.7] D:\android stud\caches\8.9\transforms\8fcd7a81c4f7e29fbb1fa681efa879a8\transformed\navigation-runtime-ktx-2.7.7\AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-compose:2.7.7] D:\android stud\caches\8.9\transforms\0f1a340d87da18395b998db700c82787\transformed\navigation-compose-2.7.7\AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-compose:2.7.7] D:\android stud\caches\8.9\transforms\0f1a340d87da18395b998db700c82787\transformed\navigation-compose-2.7.7\AndroidManifest.xml:5:5-44
+MERGED from [com.google.dagger:hilt-android:2.51.1] D:\android stud\caches\8.9\transforms\9a8574dcec6f0ae539bd129f6d3058b4\transformed\hilt-android-2.51.1\AndroidManifest.xml:18:3-42
+MERGED from [com.google.dagger:hilt-android:2.51.1] D:\android stud\caches\8.9\transforms\9a8574dcec6f0ae539bd129f6d3058b4\transformed\hilt-android-2.51.1\AndroidManifest.xml:18:3-42
+MERGED from [androidx.fragment:fragment:1.5.1] D:\android stud\caches\8.9\transforms\c9bb0c1c6dd65aaf497d18441b1ae0cd\transformed\fragment-1.5.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.5.1] D:\android stud\caches\8.9\transforms\c9bb0c1c6dd65aaf497d18441b1ae0cd\transformed\fragment-1.5.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity:1.9.0] D:\android stud\caches\8.9\transforms\fec435bc516cb3b05eb0777c8c93dff4\transformed\activity-1.9.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity:1.9.0] D:\android stud\caches\8.9\transforms\fec435bc516cb3b05eb0777c8c93dff4\transformed\activity-1.9.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.material3:material3-android:1.3.2] D:\android stud\caches\8.9\transforms\081ba1e537580bdd81ac6e20e169464b\transformed\material3-release\AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.material3:material3-android:1.3.2] D:\android stud\caches\8.9\transforms\081ba1e537580bdd81ac6e20e169464b\transformed\material3-release\AndroidManifest.xml:20:5-44
+MERGED from [io.coil-kt:coil-compose:2.6.0] D:\android stud\caches\8.9\transforms\0272d443cc0635cef262e1981114b50c\transformed\coil-compose-2.6.0\AndroidManifest.xml:5:5-44
+MERGED from [io.coil-kt:coil-compose:2.6.0] D:\android stud\caches\8.9\transforms\0272d443cc0635cef262e1981114b50c\transformed\coil-compose-2.6.0\AndroidManifest.xml:5:5-44
+MERGED from [io.coil-kt:coil-compose-base:2.6.0] D:\android stud\caches\8.9\transforms\44821f9a7d8767d1d552ad8e5bd28504\transformed\coil-compose-base-2.6.0\AndroidManifest.xml:5:5-44
+MERGED from [io.coil-kt:coil-compose-base:2.6.0] D:\android stud\caches\8.9\transforms\44821f9a7d8767d1d552ad8e5bd28504\transformed\coil-compose-base-2.6.0\AndroidManifest.xml:5:5-44
+MERGED from [com.google.accompanist:accompanist-drawablepainter:0.32.0] D:\android stud\caches\8.9\transforms\53b81ebba7fc8de0958c794003bc40b6\transformed\accompanist-drawablepainter-0.32.0\AndroidManifest.xml:21:5-44
+MERGED from [com.google.accompanist:accompanist-drawablepainter:0.32.0] D:\android stud\caches\8.9\transforms\53b81ebba7fc8de0958c794003bc40b6\transformed\accompanist-drawablepainter-0.32.0\AndroidManifest.xml:21:5-44
+MERGED from [androidx.compose.material:material-icons-extended-android:1.7.8] D:\android stud\caches\8.9\transforms\8fc3bcea58e70d38cf791fdcc8252030\transformed\material-icons-extended-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-icons-extended-android:1.7.8] D:\android stud\caches\8.9\transforms\8fc3bcea58e70d38cf791fdcc8252030\transformed\material-icons-extended-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-icons-core-android:1.7.8] D:\android stud\caches\8.9\transforms\9ffbc320cffd66da1e167b540b15f99a\transformed\material-icons-core-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-icons-core-android:1.7.8] D:\android stud\caches\8.9\transforms\9ffbc320cffd66da1e167b540b15f99a\transformed\material-icons-core-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.loader:loader:1.0.0] D:\android stud\caches\8.9\transforms\e9c6b6ad05941ec4dfe541b69e130a96\transformed\loader-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] D:\android stud\caches\8.9\transforms\e9c6b6ad05941ec4dfe541b69e130a96\transformed\loader-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [io.coil-kt:coil:2.6.0] D:\android stud\caches\8.9\transforms\92e361f3aacdc169175dcf8a081dbba7\transformed\coil-2.6.0\AndroidManifest.xml:5:5-44
+MERGED from [io.coil-kt:coil:2.6.0] D:\android stud\caches\8.9\transforms\92e361f3aacdc169175dcf8a081dbba7\transformed\coil-2.6.0\AndroidManifest.xml:5:5-44
+MERGED from [io.coil-kt:coil-base:2.6.0] D:\android stud\caches\8.9\transforms\20e79369f197f9a0209589313b7f0237\transformed\coil-base-2.6.0\AndroidManifest.xml:5:5-44
+MERGED from [io.coil-kt:coil-base:2.6.0] D:\android stud\caches\8.9\transforms\20e79369f197f9a0209589313b7f0237\transformed\coil-base-2.6.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-tooling-data-android:1.9.0] D:\android stud\caches\8.9\transforms\2bdeb9422fccab5449ee06db393d2ea6\transformed\ui-tooling-data\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-tooling-data-android:1.9.0] D:\android stud\caches\8.9\transforms\2bdeb9422fccab5449ee06db393d2ea6\transformed\ui-tooling-data\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-tooling-preview-android:1.9.0] D:\android stud\caches\8.9\transforms\0552b09a3ea9287c7519b00f995132f2\transformed\ui-tooling-preview\AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.ui:ui-tooling-preview-android:1.9.0] D:\android stud\caches\8.9\transforms\0552b09a3ea9287c7519b00f995132f2\transformed\ui-tooling-preview\AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.ui:ui-tooling-android:1.9.0] D:\android stud\caches\8.9\transforms\94dfba1a092dc2f4ca809958b6c02625\transformed\ui-tooling\AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.ui:ui-tooling-android:1.9.0] D:\android stud\caches\8.9\transforms\94dfba1a092dc2f4ca809958b6c02625\transformed\ui-tooling\AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.material:material-android:1.8.3] D:\android stud\caches\8.9\transforms\453ec43cb45385aae8c453ad60c2e642\transformed\material-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-android:1.8.3] D:\android stud\caches\8.9\transforms\453ec43cb45385aae8c453ad60c2e642\transformed\material-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-ripple-android:1.8.3] D:\android stud\caches\8.9\transforms\f5f39410542f871a4541301ec92ad408\transformed\material-ripple-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-ripple-android:1.8.3] D:\android stud\caches\8.9\transforms\f5f39410542f871a4541301ec92ad408\transformed\material-ripple-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-android:1.9.0] D:\android stud\caches\8.9\transforms\9e5b60f0cc1e2b3e0a2472f6db687bb7\transformed\foundation-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-android:1.9.0] D:\android stud\caches\8.9\transforms\9e5b60f0cc1e2b3e0a2472f6db687bb7\transformed\foundation-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-layout-android:1.9.0] D:\android stud\caches\8.9\transforms\f0bba2e8c5d52c14f595dd5300c446da\transformed\foundation-layout\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-layout-android:1.9.0] D:\android stud\caches\8.9\transforms\f0bba2e8c5d52c14f595dd5300c446da\transformed\foundation-layout\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-core-android:1.9.0] D:\android stud\caches\8.9\transforms\8d81d8e70c9a28929e2b5f931e990d32\transformed\animation-core\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-core-android:1.9.0] D:\android stud\caches\8.9\transforms\8d81d8e70c9a28929e2b5f931e990d32\transformed\animation-core\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-android:1.9.0] D:\android stud\caches\8.9\transforms\c91c18ad198ef9a9896d9d341638e1ae\transformed\animation\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-android:1.9.0] D:\android stud\caches\8.9\transforms\c91c18ad198ef9a9896d9d341638e1ae\transformed\animation\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-util-android:1.9.0] D:\android stud\caches\8.9\transforms\61ae798405d9541002712ba4d33563c6\transformed\ui-util\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-util-android:1.9.0] D:\android stud\caches\8.9\transforms\61ae798405d9541002712ba4d33563c6\transformed\ui-util\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-unit-android:1.9.0] D:\android stud\caches\8.9\transforms\340904db2977622411b6638672187f0a\transformed\ui-unit\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-unit-android:1.9.0] D:\android stud\caches\8.9\transforms\340904db2977622411b6638672187f0a\transformed\ui-unit\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-graphics-android:1.9.0] D:\android stud\caches\8.9\transforms\d9132fec3f7453266a247366709b576b\transformed\ui-graphics-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-graphics-android:1.9.0] D:\android stud\caches\8.9\transforms\d9132fec3f7453266a247366709b576b\transformed\ui-graphics-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-geometry-android:1.9.0] D:\android stud\caches\8.9\transforms\6e7e7c6ba1c27630ed64a4708bf6fc0c\transformed\ui-geometry\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-geometry-android:1.9.0] D:\android stud\caches\8.9\transforms\6e7e7c6ba1c27630ed64a4708bf6fc0c\transformed\ui-geometry\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-text-android:1.9.0] D:\android stud\caches\8.9\transforms\d065e748fbb9c06b61dd5e210f6a10b9\transformed\ui-text\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-text-android:1.9.0] D:\android stud\caches\8.9\transforms\d065e748fbb9c06b61dd5e210f6a10b9\transformed\ui-text\AndroidManifest.xml:5:5-44
+MERGED from [androidx.emoji2:emoji2:1.4.0] D:\android stud\caches\8.9\transforms\96929ecc76693f90a7794f2426acd3b5\transformed\emoji2-1.4.0\AndroidManifest.xml:21:5-44
+MERGED from [androidx.emoji2:emoji2:1.4.0] D:\android stud\caches\8.9\transforms\96929ecc76693f90a7794f2426acd3b5\transformed\emoji2-1.4.0\AndroidManifest.xml:21:5-44
+MERGED from [androidx.lifecycle:lifecycle-process:2.9.4] D:\android stud\caches\8.9\transforms\b8643b2015efbabc523910c03bfb1ba7\transformed\lifecycle-process-2.9.4\AndroidManifest.xml:21:5-44
+MERGED from [androidx.lifecycle:lifecycle-process:2.9.4] D:\android stud\caches\8.9\transforms\b8643b2015efbabc523910c03bfb1ba7\transformed\lifecycle-process-2.9.4\AndroidManifest.xml:21:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.9.4] D:\android stud\caches\8.9\transforms\1e6cd0ee94de0adb5a17ac3ea1b6193e\transformed\lifecycle-viewmodel-2.9.4\AndroidManifest.xml:4:5-43
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.9.4] D:\android stud\caches\8.9\transforms\1e6cd0ee94de0adb5a17ac3ea1b6193e\transformed\lifecycle-viewmodel-2.9.4\AndroidManifest.xml:4:5-43
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-android:2.9.4] D:\android stud\caches\8.9\transforms\ba8dab8d6c515c8b2a1dcfe7d94318b5\transformed\lifecycle-viewmodel-release\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-android:2.9.4] D:\android stud\caches\8.9\transforms\ba8dab8d6c515c8b2a1dcfe7d94318b5\transformed\lifecycle-viewmodel-release\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.9.4] D:\android stud\caches\8.9\transforms\e2042a744276de29622515a70037f96b\transformed\lifecycle-livedata-core-ktx-2.9.4\AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.9.4] D:\android stud\caches\8.9\transforms\e2042a744276de29622515a70037f96b\transformed\lifecycle-livedata-core-ktx-2.9.4\AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx-android:2.9.4] D:\android stud\caches\8.9\transforms\20ab9aca721338d77b14f8dbfb3255e8\transformed\lifecycle-runtime-ktx\AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx-android:2.9.4] D:\android stud\caches\8.9\transforms\20ab9aca721338d77b14f8dbfb3255e8\transformed\lifecycle-runtime-ktx\AndroidManifest.xml:5:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] D:\android stud\caches\8.9\transforms\36965c3764fda17df0c0bb630d1f7b90\transformed\viewpager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] D:\android stud\caches\8.9\transforms\36965c3764fda17df0c0bb630d1f7b90\transformed\viewpager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] D:\android stud\caches\8.9\transforms\b8d667de83766afa6725f2586495a8b1\transformed\customview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] D:\android stud\caches\8.9\transforms\b8d667de83766afa6725f2586495a8b1\transformed\customview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.appcompat:appcompat-resources:1.6.1] D:\android stud\caches\8.9\transforms\9edf88a566bc63b0ede8d800911a6e6c\transformed\appcompat-resources-1.6.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.appcompat:appcompat-resources:1.6.1] D:\android stud\caches\8.9\transforms\9edf88a566bc63b0ede8d800911a6e6c\transformed\appcompat-resources-1.6.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] D:\android stud\caches\8.9\transforms\b261729f6c3177a60bbe6ea8289d0f12\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] D:\android stud\caches\8.9\transforms\b261729f6c3177a60bbe6ea8289d0f12\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] D:\android stud\caches\8.9\transforms\66534c549c4c253d0951c9bc6586b62f\transformed\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] D:\android stud\caches\8.9\transforms\66534c549c4c253d0951c9bc6586b62f\transformed\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.autofill:autofill:1.0.0] D:\android stud\caches\8.9\transforms\db8a127c541837d3d9183aa666dacdd8\transformed\autofill-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.autofill:autofill:1.0.0] D:\android stud\caches\8.9\transforms\db8a127c541837d3d9183aa666dacdd8\transformed\autofill-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] D:\android stud\caches\8.9\transforms\622a5495930062f0fe6e2b067172646c\transformed\customview-poolingcontainer-1.0.0\AndroidManifest.xml:20:5-21:38
+MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] D:\android stud\caches\8.9\transforms\622a5495930062f0fe6e2b067172646c\transformed\customview-poolingcontainer-1.0.0\AndroidManifest.xml:20:5-21:38
+MERGED from [androidx.core:core-ktx:1.15.0] D:\android stud\caches\8.9\transforms\5c5747d07272f37f7b1e71eb50c8df21\transformed\core-ktx-1.15.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.core:core-ktx:1.15.0] D:\android stud\caches\8.9\transforms\5c5747d07272f37f7b1e71eb50c8df21\transformed\core-ktx-1.15.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.graphics:graphics-path:1.0.1] D:\android stud\caches\8.9\transforms\97447ef5eaefa559d0dc8514ad8af33d\transformed\graphics-path-1.0.1\AndroidManifest.xml:5:5-44
+MERGED from [androidx.graphics:graphics-path:1.0.1] D:\android stud\caches\8.9\transforms\97447ef5eaefa559d0dc8514ad8af33d\transformed\graphics-path-1.0.1\AndroidManifest.xml:5:5-44
+MERGED from [androidx.core:core:1.15.0] D:\android stud\caches\8.9\transforms\a9b17267577daf04c42c9c0761f7f59b\transformed\core-1.15.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.15.0] D:\android stud\caches\8.9\transforms\a9b17267577daf04c42c9c0761f7f59b\transformed\core-1.15.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-android:2.9.4] D:\android stud\caches\8.9\transforms\6e5aab9f868e82538b7b39494aae6906\transformed\lifecycle-runtime-release\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-android:2.9.4] D:\android stud\caches\8.9\transforms\6e5aab9f868e82538b7b39494aae6906\transformed\lifecycle-runtime-release\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.9.4] D:\android stud\caches\8.9\transforms\425447504a986ce5a733964d6fc8767a\transformed\lifecycle-viewmodel-ktx-2.9.4\AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.9.4] D:\android stud\caches\8.9\transforms\425447504a986ce5a733964d6fc8767a\transformed\lifecycle-viewmodel-ktx-2.9.4\AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.9.4] D:\android stud\caches\8.9\transforms\a100337bf3525df2fb702dd336f2681b\transformed\lifecycle-livedata-core-2.9.4\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.9.4] D:\android stud\caches\8.9\transforms\a100337bf3525df2fb702dd336f2681b\transformed\lifecycle-livedata-core-2.9.4\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.9.4] D:\android stud\caches\8.9\transforms\4368d5f8fc9d2baee5aa3655af29eedb\transformed\lifecycle-livedata-2.9.4\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.9.4] D:\android stud\caches\8.9\transforms\4368d5f8fc9d2baee5aa3655af29eedb\transformed\lifecycle-livedata-2.9.4\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate-android:2.9.4] D:\android stud\caches\8.9\transforms\b957aa06e56b9193a6c276a86135eb89\transformed\lifecycle-viewmodel-savedstate-release\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate-android:2.9.4] D:\android stud\caches\8.9\transforms\b957aa06e56b9193a6c276a86135eb89\transformed\lifecycle-viewmodel-savedstate-release\AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate-android:1.3.2] D:\android stud\caches\8.9\transforms\d1789a56575a78563d050fe576c58602\transformed\savedstate-release\AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate-android:1.3.2] D:\android stud\caches\8.9\transforms\d1789a56575a78563d050fe576c58602\transformed\savedstate-release\AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate-ktx:1.3.2] D:\android stud\caches\8.9\transforms\52d7a5440b702a59441909f9c353eed7\transformed\savedstate-ktx-1.3.2\AndroidManifest.xml:5:5-44
+MERGED from [androidx.savedstate:savedstate-ktx:1.3.2] D:\android stud\caches\8.9\transforms\52d7a5440b702a59441909f9c353eed7\transformed\savedstate-ktx-1.3.2\AndroidManifest.xml:5:5-44
+MERGED from [androidx.savedstate:savedstate-compose-android:1.3.2] D:\android stud\caches\8.9\transforms\8d3e120d38e7b8f586fe1cb08b05c499\transformed\savedstate-compose\AndroidManifest.xml:5:5-44
+MERGED from [androidx.savedstate:savedstate-compose-android:1.3.2] D:\android stud\caches\8.9\transforms\8d3e120d38e7b8f586fe1cb08b05c499\transformed\savedstate-compose\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-annotation-android:1.11.3] D:\android stud\caches\8.9\transforms\b3c80c706dc3380490e8d6ebb5cd028f\transformed\runtime-annotation\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-annotation-android:1.11.3] D:\android stud\caches\8.9\transforms\b3c80c706dc3380490e8d6ebb5cd028f\transformed\runtime-annotation\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-android:1.11.3] D:\android stud\caches\8.9\transforms\d416b2ceda599c267c98c0387f9d3080\transformed\runtime\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-android:1.11.3] D:\android stud\caches\8.9\transforms\d416b2ceda599c267c98c0387f9d3080\transformed\runtime\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-saveable-android:1.11.3] D:\android stud\caches\8.9\transforms\2ba1427df606c36c12280861fcd0b588\transformed\runtime-saveable\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-saveable-android:1.11.3] D:\android stud\caches\8.9\transforms\2ba1427df606c36c12280861fcd0b588\transformed\runtime-saveable\AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-compose-android:2.9.4] D:\android stud\caches\8.9\transforms\7a8815a035791cb3d7a9ae77bff04cd4\transformed\lifecycle-runtime-compose-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-compose-android:2.9.4] D:\android stud\caches\8.9\transforms\7a8815a035791cb3d7a9ae77bff04cd4\transformed\lifecycle-runtime-compose-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-compose-android:2.9.4] D:\android stud\caches\8.9\transforms\2c2b0a13d6a4a3d7a0981a363d2c0e12\transformed\lifecycle-viewmodel-compose-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-compose-android:2.9.4] D:\android stud\caches\8.9\transforms\2c2b0a13d6a4a3d7a0981a363d2c0e12\transformed\lifecycle-viewmodel-compose-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-android:1.9.0] D:\android stud\caches\8.9\transforms\f852279d4c22a5a67250210da0e3091e\transformed\ui-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-android:1.9.0] D:\android stud\caches\8.9\transforms\f852279d4c22a5a67250210da0e3091e\transformed\ui-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.activity:activity-ktx:1.9.0] D:\android stud\caches\8.9\transforms\9dbdcbbad299e7b690f33de476d512a6\transformed\activity-ktx-1.9.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.activity:activity-ktx:1.9.0] D:\android stud\caches\8.9\transforms\9dbdcbbad299e7b690f33de476d512a6\transformed\activity-ktx-1.9.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.activity:activity-compose:1.9.0] D:\android stud\caches\8.9\transforms\9ab45e92b3cd0d4e5e3a086ac7330f13\transformed\activity-compose-1.9.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.activity:activity-compose:1.9.0] D:\android stud\caches\8.9\transforms\9ab45e92b3cd0d4e5e3a086ac7330f13\transformed\activity-compose-1.9.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.datastore:datastore-core-android:1.1.1] D:\android stud\caches\8.9\transforms\20c4ec06e65ca4e0b2d62a928b4b1f93\transformed\datastore-core-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.datastore:datastore-core-android:1.1.1] D:\android stud\caches\8.9\transforms\20c4ec06e65ca4e0b2d62a928b4b1f93\transformed\datastore-core-release\AndroidManifest.xml:5:5-44
+MERGED from [androidx.datastore:datastore-android:1.1.1] D:\android stud\caches\8.9\transforms\eff17eb00688ca56e93a1a0bc054cdfa\transformed\datastore-release\AndroidManifest.xml:20:5-44
+MERGED from [androidx.datastore:datastore-android:1.1.1] D:\android stud\caches\8.9\transforms\eff17eb00688ca56e93a1a0bc054cdfa\transformed\datastore-release\AndroidManifest.xml:20:5-44
+MERGED from [androidx.datastore:datastore-preferences-android:1.1.1] D:\android stud\caches\8.9\transforms\7ac6caf601b0b32c4febc31618abfd16\transformed\datastore-preferences-release\AndroidManifest.xml:20:5-44
+MERGED from [androidx.datastore:datastore-preferences-android:1.1.1] D:\android stud\caches\8.9\transforms\7ac6caf601b0b32c4febc31618abfd16\transformed\datastore-preferences-release\AndroidManifest.xml:20:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.4.1] D:\android stud\caches\8.9\transforms\fd9d856c9596dfa85475e474d9d4f68b\transformed\annotation-experimental-1.4.1\AndroidManifest.xml:5:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.4.1] D:\android stud\caches\8.9\transforms\fd9d856c9596dfa85475e474d9d4f68b\transformed\annotation-experimental-1.4.1\AndroidManifest.xml:5:5-44
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] D:\android stud\caches\8.9\transforms\065fc8c5dee0d8e46d8d4e89ee2547ec\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] D:\android stud\caches\8.9\transforms\065fc8c5dee0d8e46d8d4e89ee2547ec\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.interpolator:interpolator:1.0.0] D:\android stud\caches\8.9\transforms\0b326b833283ac990e9b798c510779c9\transformed\interpolator-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] D:\android stud\caches\8.9\transforms\0b326b833283ac990e9b798c510779c9\transformed\interpolator-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.0] D:\android stud\caches\8.9\transforms\0c661dab86fae181b1d42081d45093e6\transformed\profileinstaller-1.4.0\AndroidManifest.xml:21:5-44
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.0] D:\android stud\caches\8.9\transforms\0c661dab86fae181b1d42081d45093e6\transformed\profileinstaller-1.4.0\AndroidManifest.xml:21:5-44
+MERGED from [androidx.exifinterface:exifinterface:1.3.7] D:\android stud\caches\8.9\transforms\0dc071057038b9e08205df903fb8bb21\transformed\exifinterface-1.3.7\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.exifinterface:exifinterface:1.3.7] D:\android stud\caches\8.9\transforms\0dc071057038b9e08205df903fb8bb21\transformed\exifinterface-1.3.7\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.startup:startup-runtime:1.1.1] D:\android stud\caches\8.9\transforms\813a76c4e32c02358e43080c0e308f4a\transformed\startup-runtime-1.1.1\AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.startup:startup-runtime:1.1.1] D:\android stud\caches\8.9\transforms\813a76c4e32c02358e43080c0e308f4a\transformed\startup-runtime-1.1.1\AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.arch.core:core-runtime:2.2.0] D:\android stud\caches\8.9\transforms\1cb7bade5061a8e3ffb40c27bf7428a5\transformed\core-runtime-2.2.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.2.0] D:\android stud\caches\8.9\transforms\1cb7bade5061a8e3ffb40c27bf7428a5\transformed\core-runtime-2.2.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.tracing:tracing:1.2.0] D:\android stud\caches\8.9\transforms\a0e8033efc66d0abc93816781234fdb5\transformed\tracing-1.2.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.tracing:tracing:1.2.0] D:\android stud\caches\8.9\transforms\a0e8033efc66d0abc93816781234fdb5\transformed\tracing-1.2.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core-viewtree:1.0.0] D:\android stud\caches\8.9\transforms\0ada203cc8b4a4b0f81d60bb85ac531e\transformed\core-viewtree-1.0.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.core:core-viewtree:1.0.0] D:\android stud\caches\8.9\transforms\0ada203cc8b4a4b0f81d60bb85ac531e\transformed\core-viewtree-1.0.0\AndroidManifest.xml:5:5-44
+MERGED from [com.google.dagger:dagger-lint-aar:2.51.1] D:\android stud\caches\8.9\transforms\c2a8ea7b22fc45ffdff0cc6887c14725\transformed\dagger-lint-aar-2.51.1\AndroidManifest.xml:18:3-42
+MERGED from [com.google.dagger:dagger-lint-aar:2.51.1] D:\android stud\caches\8.9\transforms\c2a8ea7b22fc45ffdff0cc6887c14725\transformed\dagger-lint-aar-2.51.1\AndroidManifest.xml:18:3-42
+	android:targetSdkVersion
+		INJECTED from C:\Users\rtyot\Downloads\test1\EduPlatform\app\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from C:\Users\rtyot\Downloads\test1\EduPlatform\app\src\main\AndroidManifest.xml
+activity#androidx.compose.ui.tooling.PreviewActivity
+ADDED from [androidx.compose.ui:ui-tooling-android:1.9.0] D:\android stud\caches\8.9\transforms\94dfba1a092dc2f4ca809958b6c02625\transformed\ui-tooling\AndroidManifest.xml:23:9-25:39
+	android:exported
+		ADDED from [androidx.compose.ui:ui-tooling-android:1.9.0] D:\android stud\caches\8.9\transforms\94dfba1a092dc2f4ca809958b6c02625\transformed\ui-tooling\AndroidManifest.xml:25:13-36
+	android:name
+		ADDED from [androidx.compose.ui:ui-tooling-android:1.9.0] D:\android stud\caches\8.9\transforms\94dfba1a092dc2f4ca809958b6c02625\transformed\ui-tooling\AndroidManifest.xml:24:13-71
+provider#androidx.startup.InitializationProvider
+ADDED from [androidx.emoji2:emoji2:1.4.0] D:\android stud\caches\8.9\transforms\96929ecc76693f90a7794f2426acd3b5\transformed\emoji2-1.4.0\AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.lifecycle:lifecycle-process:2.9.4] D:\android stud\caches\8.9\transforms\b8643b2015efbabc523910c03bfb1ba7\transformed\lifecycle-process-2.9.4\AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.lifecycle:lifecycle-process:2.9.4] D:\android stud\caches\8.9\transforms\b8643b2015efbabc523910c03bfb1ba7\transformed\lifecycle-process-2.9.4\AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.0] D:\android stud\caches\8.9\transforms\0c661dab86fae181b1d42081d45093e6\transformed\profileinstaller-1.4.0\AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.profileinstaller:profileinstaller:1.4.0] D:\android stud\caches\8.9\transforms\0c661dab86fae181b1d42081d45093e6\transformed\profileinstaller-1.4.0\AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.startup:startup-runtime:1.1.1] D:\android stud\caches\8.9\transforms\813a76c4e32c02358e43080c0e308f4a\transformed\startup-runtime-1.1.1\AndroidManifest.xml:26:9-30:34
+MERGED from [androidx.startup:startup-runtime:1.1.1] D:\android stud\caches\8.9\transforms\813a76c4e32c02358e43080c0e308f4a\transformed\startup-runtime-1.1.1\AndroidManifest.xml:26:9-30:34
+	tools:node
+		ADDED from [androidx.emoji2:emoji2:1.4.0] D:\android stud\caches\8.9\transforms\96929ecc76693f90a7794f2426acd3b5\transformed\emoji2-1.4.0\AndroidManifest.xml:28:13-31
+	android:authorities
+		ADDED from [androidx.emoji2:emoji2:1.4.0] D:\android stud\caches\8.9\transforms\96929ecc76693f90a7794f2426acd3b5\transformed\emoji2-1.4.0\AndroidManifest.xml:26:13-68
+	android:exported
+		ADDED from [androidx.emoji2:emoji2:1.4.0] D:\android stud\caches\8.9\transforms\96929ecc76693f90a7794f2426acd3b5\transformed\emoji2-1.4.0\AndroidManifest.xml:27:13-37
+	android:name
+		ADDED from [androidx.emoji2:emoji2:1.4.0] D:\android stud\caches\8.9\transforms\96929ecc76693f90a7794f2426acd3b5\transformed\emoji2-1.4.0\AndroidManifest.xml:25:13-67
+meta-data#androidx.emoji2.text.EmojiCompatInitializer
+ADDED from [androidx.emoji2:emoji2:1.4.0] D:\android stud\caches\8.9\transforms\96929ecc76693f90a7794f2426acd3b5\transformed\emoji2-1.4.0\AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.emoji2:emoji2:1.4.0] D:\android stud\caches\8.9\transforms\96929ecc76693f90a7794f2426acd3b5\transformed\emoji2-1.4.0\AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.emoji2:emoji2:1.4.0] D:\android stud\caches\8.9\transforms\96929ecc76693f90a7794f2426acd3b5\transformed\emoji2-1.4.0\AndroidManifest.xml:30:17-75
+meta-data#androidx.lifecycle.ProcessLifecycleInitializer
+ADDED from [androidx.lifecycle:lifecycle-process:2.9.4] D:\android stud\caches\8.9\transforms\b8643b2015efbabc523910c03bfb1ba7\transformed\lifecycle-process-2.9.4\AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.lifecycle:lifecycle-process:2.9.4] D:\android stud\caches\8.9\transforms\b8643b2015efbabc523910c03bfb1ba7\transformed\lifecycle-process-2.9.4\AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.lifecycle:lifecycle-process:2.9.4] D:\android stud\caches\8.9\transforms\b8643b2015efbabc523910c03bfb1ba7\transformed\lifecycle-process-2.9.4\AndroidManifest.xml:30:17-78
+permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.15.0] D:\android stud\caches\8.9\transforms\a9b17267577daf04c42c9c0761f7f59b\transformed\core-1.15.0\AndroidManifest.xml:22:5-24:47
+	android:protectionLevel
+		ADDED from [androidx.core:core:1.15.0] D:\android stud\caches\8.9\transforms\a9b17267577daf04c42c9c0761f7f59b\transformed\core-1.15.0\AndroidManifest.xml:24:9-44
+	android:name
+		ADDED from [androidx.core:core:1.15.0] D:\android stud\caches\8.9\transforms\a9b17267577daf04c42c9c0761f7f59b\transformed\core-1.15.0\AndroidManifest.xml:23:9-81
+permission#com.eduplatform.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.15.0] D:\android stud\caches\8.9\transforms\a9b17267577daf04c42c9c0761f7f59b\transformed\core-1.15.0\AndroidManifest.xml:22:5-24:47
+	android:protectionLevel
+		ADDED from [androidx.core:core:1.15.0] D:\android stud\caches\8.9\transforms\a9b17267577daf04c42c9c0761f7f59b\transformed\core-1.15.0\AndroidManifest.xml:24:9-44
+	android:name
+		ADDED from [androidx.core:core:1.15.0] D:\android stud\caches\8.9\transforms\a9b17267577daf04c42c9c0761f7f59b\transformed\core-1.15.0\AndroidManifest.xml:23:9-81
+uses-permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.15.0] D:\android stud\caches\8.9\transforms\a9b17267577daf04c42c9c0761f7f59b\transformed\core-1.15.0\AndroidManifest.xml:26:5-97
+	android:name
+		ADDED from [androidx.core:core:1.15.0] D:\android stud\caches\8.9\transforms\a9b17267577daf04c42c9c0761f7f59b\transformed\core-1.15.0\AndroidManifest.xml:26:22-94
+uses-permission#com.eduplatform.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.15.0] D:\android stud\caches\8.9\transforms\a9b17267577daf04c42c9c0761f7f59b\transformed\core-1.15.0\AndroidManifest.xml:26:5-97
+	android:name
+		ADDED from [androidx.core:core:1.15.0] D:\android stud\caches\8.9\transforms\a9b17267577daf04c42c9c0761f7f59b\transformed\core-1.15.0\AndroidManifest.xml:26:22-94
+meta-data#androidx.profileinstaller.ProfileInstallerInitializer
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] D:\android stud\caches\8.9\transforms\0c661dab86fae181b1d42081d45093e6\transformed\profileinstaller-1.4.0\AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] D:\android stud\caches\8.9\transforms\0c661dab86fae181b1d42081d45093e6\transformed\profileinstaller-1.4.0\AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] D:\android stud\caches\8.9\transforms\0c661dab86fae181b1d42081d45093e6\transformed\profileinstaller-1.4.0\AndroidManifest.xml:30:17-85
+receiver#androidx.profileinstaller.ProfileInstallReceiver
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] D:\android stud\caches\8.9\transforms\0c661dab86fae181b1d42081d45093e6\transformed\profileinstaller-1.4.0\AndroidManifest.xml:34:9-52:20
+	android:enabled
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] D:\android stud\caches\8.9\transforms\0c661dab86fae181b1d42081d45093e6\transformed\profileinstaller-1.4.0\AndroidManifest.xml:37:13-35
+	android:exported
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] D:\android stud\caches\8.9\transforms\0c661dab86fae181b1d42081d45093e6\transformed\profileinstaller-1.4.0\AndroidManifest.xml:38:13-36
+	android:permission
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] D:\android stud\caches\8.9\transforms\0c661dab86fae181b1d42081d45093e6\transformed\profileinstaller-1.4.0\AndroidManifest.xml:39:13-57
+	android:directBootAware
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] D:\android stud\caches\8.9\transforms\0c661dab86fae181b1d42081d45093e6\transformed\profileinstaller-1.4.0\AndroidManifest.xml:36:13-44
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] D:\android stud\caches\8.9\transforms\0c661dab86fae181b1d42081d45093e6\transformed\profileinstaller-1.4.0\AndroidManifest.xml:35:13-76
+intent-filter#action:name:androidx.profileinstaller.action.INSTALL_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] D:\android stud\caches\8.9\transforms\0c661dab86fae181b1d42081d45093e6\transformed\profileinstaller-1.4.0\AndroidManifest.xml:40:13-42:29
+action#androidx.profileinstaller.action.INSTALL_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] D:\android stud\caches\8.9\transforms\0c661dab86fae181b1d42081d45093e6\transformed\profileinstaller-1.4.0\AndroidManifest.xml:41:17-91
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] D:\android stud\caches\8.9\transforms\0c661dab86fae181b1d42081d45093e6\transformed\profileinstaller-1.4.0\AndroidManifest.xml:41:25-88
+intent-filter#action:name:androidx.profileinstaller.action.SKIP_FILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] D:\android stud\caches\8.9\transforms\0c661dab86fae181b1d42081d45093e6\transformed\profileinstaller-1.4.0\AndroidManifest.xml:43:13-45:29
+action#androidx.profileinstaller.action.SKIP_FILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] D:\android stud\caches\8.9\transforms\0c661dab86fae181b1d42081d45093e6\transformed\profileinstaller-1.4.0\AndroidManifest.xml:44:17-85
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] D:\android stud\caches\8.9\transforms\0c661dab86fae181b1d42081d45093e6\transformed\profileinstaller-1.4.0\AndroidManifest.xml:44:25-82
+intent-filter#action:name:androidx.profileinstaller.action.SAVE_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] D:\android stud\caches\8.9\transforms\0c661dab86fae181b1d42081d45093e6\transformed\profileinstaller-1.4.0\AndroidManifest.xml:46:13-48:29
+action#androidx.profileinstaller.action.SAVE_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] D:\android stud\caches\8.9\transforms\0c661dab86fae181b1d42081d45093e6\transformed\profileinstaller-1.4.0\AndroidManifest.xml:47:17-88
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] D:\android stud\caches\8.9\transforms\0c661dab86fae181b1d42081d45093e6\transformed\profileinstaller-1.4.0\AndroidManifest.xml:47:25-85
+intent-filter#action:name:androidx.profileinstaller.action.BENCHMARK_OPERATION
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] D:\android stud\caches\8.9\transforms\0c661dab86fae181b1d42081d45093e6\transformed\profileinstaller-1.4.0\AndroidManifest.xml:49:13-51:29
+action#androidx.profileinstaller.action.BENCHMARK_OPERATION
+ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] D:\android stud\caches\8.9\transforms\0c661dab86fae181b1d42081d45093e6\transformed\profileinstaller-1.4.0\AndroidManifest.xml:50:17-95
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.4.0] D:\android stud\caches\8.9\transforms\0c661dab86fae181b1d42081d45093e6\transformed\profileinstaller-1.4.0\AndroidManifest.xml:50:25-92
