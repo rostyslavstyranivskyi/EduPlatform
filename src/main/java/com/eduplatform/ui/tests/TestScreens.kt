@@ -382,3 +382,162 @@ class MutableQuestionState {
     var options = mutableStateListOf("", "")
     var correctIndex by mutableStateOf(0)
 }
+
+/**
+ * Екран редагування тесту.
+ * [testId] — ID тесту (для курсового та уроку-блоку).
+ * [topicId] — ID теми (для тесту теми, використовує PATCH /tests/topic/:topicId).
+ * Передається лише один з них, залежно від типу тесту.
+ */
+@Composable
+fun EditTestScreen(
+    viewModel: TestViewModel,
+    onBack: () -> Unit,
+    testId: String? = null,
+    lessonId: String? = null,
+    topicId: String? = null
+) {
+    val existingTest by viewModel.test.collectAsState()
+    val isLoading by viewModel.isLoading.collectAsState()
+    val message by viewModel.message.collectAsState()
+
+    // Завантажуємо тест при відкритті екрану
+    LaunchedEffect(testId, lessonId, topicId) {
+        when {
+            lessonId != null -> viewModel.loadLessonTest(lessonId)
+            topicId != null -> viewModel.loadTopicTest(topicId)
+            // Для тесту курсу testId є courseId — використовуємо loadTest
+            testId != null -> viewModel.loadTest(testId)
+        }
+    }
+
+    var initialized by remember { mutableStateOf(false) }
+    var testTitle by remember { mutableStateOf("") }
+    var passingScore by remember { mutableStateOf("70") }
+    val questions = remember { mutableStateListOf<MutableQuestionState>() }
+
+    // Ініціалізуємо форму даними з вже завантаженого тесту
+    LaunchedEffect(existingTest) {
+        val t = existingTest ?: return@LaunchedEffect
+        if (!initialized) {
+            testTitle = t.title
+            passingScore = t.passingScore.toString()
+            questions.clear()
+            t.questions.forEach { q ->
+                questions.add(MutableQuestionState().also { ms ->
+                    ms.question = q.question
+                    ms.options.clear()
+                    ms.options.addAll(q.options)
+                    ms.correctIndex = q.correctIndex ?: 0
+                })
+            }
+            initialized = true
+        }
+    }
+
+    LaunchedEffect(message) {
+        if (message?.contains("оновлено") == true) {
+            kotlinx.coroutines.delay(500)
+            onBack()
+        }
+    }
+
+    Scaffold(topBar = { EduTopBar("Редагувати тест", onBack = onBack) }) { padding ->
+        when {
+            isLoading && !initialized -> LoadingScreen()
+            else -> Column(
+                Modifier.fillMaxSize().padding(padding)
+                    .verticalScroll(rememberScrollState()).padding(16.dp)
+            ) {
+                OutlinedTextField(
+                    value = testTitle, onValueChange = { testTitle = it },
+                    label = { Text("Назва тесту") }, modifier = Modifier.fillMaxWidth(), singleLine = true
+                )
+                Spacer(Modifier.height(12.dp))
+                OutlinedTextField(
+                    value = passingScore, onValueChange = { passingScore = it },
+                    label = { Text("Прохідний бал (0–100)%") }, modifier = Modifier.fillMaxWidth(), singleLine = true
+                )
+                Spacer(Modifier.height(16.dp))
+
+                questions.forEachIndexed { qi, q ->
+                    Card(Modifier.fillMaxWidth().padding(vertical = 4.dp)) {
+                        Column(Modifier.padding(12.dp)) {
+                            Row(verticalAlignment = Alignment.CenterVertically) {
+                                Text("Питання ${qi + 1}", style = MaterialTheme.typography.labelLarge,
+                                    modifier = Modifier.weight(1f))
+                                IconButton(onClick = { questions.removeAt(qi) }, modifier = Modifier.size(32.dp)) {
+                                    Icon(Icons.Default.Delete, null, tint = MaterialTheme.colorScheme.error)
+                                }
+                            }
+                            Spacer(Modifier.height(4.dp))
+                            OutlinedTextField(value = q.question, onValueChange = { q.question = it },
+                                label = { Text("Текст питання") }, modifier = Modifier.fillMaxWidth())
+                            Spacer(Modifier.height(8.dp))
+                            q.options.forEachIndexed { oi, opt ->
+                                Row(verticalAlignment = Alignment.CenterVertically) {
+                                    RadioButton(selected = q.correctIndex == oi, onClick = { q.correctIndex = oi })
+                                    OutlinedTextField(value = opt, onValueChange = { q.options[oi] = it },
+                                        label = { Text("Варіант ${oi + 1}") },
+                                        modifier = Modifier.weight(1f), singleLine = true)
+                                    if (q.options.size > 2) {
+                                        IconButton(onClick = {
+                                            if (q.correctIndex == oi) q.correctIndex = 0
+                                            q.options.removeAt(oi)
+                                        }, modifier = Modifier.size(32.dp)) {
+                                            Icon(Icons.Default.Close, null)
+                                        }
+                                    }
+                                }
+                            }
+                            if (q.options.size < 6) {
+                                TextButton(onClick = { q.options.add("") }) {
+                                    Icon(Icons.Default.Add, null); Text("Додати варіант")
+                                }
+                            }
+                        }
+                    }
+                }
+
+                Spacer(Modifier.height(8.dp))
+                OutlinedButton(
+                    onClick = { questions.add(MutableQuestionState()) },
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Icon(Icons.Default.Add, null); Spacer(Modifier.width(8.dp)); Text("Додати питання")
+                }
+
+                message?.let {
+                    Spacer(Modifier.height(8.dp))
+                    Card(colors = CardDefaults.cardColors(
+                        containerColor = if (it.contains("оновлено")) MaterialTheme.colorScheme.secondaryContainer
+                        else MaterialTheme.colorScheme.errorContainer
+                    )) { Text(it, Modifier.padding(12.dp)) }
+                }
+
+                Spacer(Modifier.height(20.dp))
+                val isValid = testTitle.isNotBlank() && questions.isNotEmpty()
+                        && questions.all { it.question.isNotBlank() && it.options.size >= 2 && it.options.all { o -> o.isNotBlank() } }
+
+                Button(
+                    onClick = {
+                        val qs = questions.map { q ->
+                            TestQuestion(q.question, q.options.toList(), q.correctIndex)
+                        }
+                        val req = CreateTestRequest(testTitle.trim(), qs, passingScore.toIntOrNull() ?: 70)
+                        val currentTestId = existingTest?.id
+                        when {
+                            topicId != null -> viewModel.updateTopicTest(topicId, req) {}
+                            currentTestId != null -> viewModel.updateTest(currentTestId, req) {}
+                        }
+                    },
+                    modifier = Modifier.fillMaxWidth(),
+                    enabled = !isLoading && isValid
+                ) {
+                    if (isLoading) CircularProgressIndicator(Modifier.size(20.dp))
+                    else { Icon(Icons.Default.Save, null); Spacer(Modifier.width(8.dp)); Text("Зберегти зміни") }
+                }
+            }
+        }
+    }
+}

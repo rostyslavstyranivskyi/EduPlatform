@@ -113,7 +113,8 @@ fun BlocksListScreen(
     onLessonClick: (String) -> Unit,
     onLessonTestClick: (String) -> Unit,
     onCreateLesson: () -> Unit,
-    onCreateLessonTest: (String) -> Unit
+    onCreateLessonTest: (String) -> Unit,
+    onEditLessonTest: (String, String) -> Unit = { _, _ -> }
 ) {
     val blocks by viewModel.blocks.collectAsState()
     val progress by viewModel.progress.collectAsState()
@@ -190,6 +191,7 @@ fun BlocksListScreen(
                             onLessonClick = { onLessonClick(block.lesson.id) },
                             onTestClick = { onLessonTestClick(block.lesson.id) },
                             onCreateTest = { onCreateLessonTest(block.lesson.id) },
+                            onEditTest = { block.test?.let { t -> onEditLessonTest(t.id, block.lesson.id) } },
                             onDelete = if (userRole == "teacher") {{ viewModel.deleteLesson(block.lesson.id, courseId) }} else null
                         )
                     }
@@ -207,6 +209,7 @@ fun BlockListItem(
     onLessonClick: () -> Unit,
     onTestClick: () -> Unit,
     onCreateTest: () -> Unit,
+    onEditTest: () -> Unit = {},
     onDelete: (() -> Unit)?
 ) {
     var showDeleteDialog by remember { mutableStateOf(false) }
@@ -272,6 +275,12 @@ fun BlockListItem(
                     },
                     trailingContent = if (userRole == "student" && !lessonCompleted) {
                         { Icon(Icons.Default.Lock, null, tint = MaterialTheme.colorScheme.outline) }
+                    } else if (userRole == "teacher") {
+                        {
+                            IconButton(onClick = onEditTest, modifier = Modifier.size(32.dp)) {
+                                Icon(Icons.Default.Edit, null, tint = MaterialTheme.colorScheme.primary)
+                            }
+                        }
                     } else null,
                     modifier = Modifier.clickable(
                         enabled = userRole == "teacher" || lessonCompleted,

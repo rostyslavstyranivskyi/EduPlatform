@@ -117,6 +117,34 @@ class TestViewModel @Inject constructor(
         }
     }
 
+    // ── Edit ──────────────────────────────────────────────────────────────────
+
+    /** Редагування тесту курсу або уроку (за testId) */
+    fun updateTest(testId: String, req: CreateTestRequest, onDone: () -> Unit) {
+        viewModelScope.launch {
+            _isLoading.value = true
+            when (val r = repository.updateTest(testId, req)) {
+                is Result.Success -> { _message.value = "Тест оновлено"; _test.value = r.data; onDone() }
+                is Result.Error -> _message.value = r.message
+                else -> {}
+            }
+            _isLoading.value = false
+        }
+    }
+
+    /** Редагування тесту теми (за topicId) */
+    fun updateTopicTest(topicId: String, req: CreateTestRequest, onDone: () -> Unit) {
+        viewModelScope.launch {
+            _isLoading.value = true
+            when (val r = repository.updateTopicTest(topicId, req)) {
+                is Result.Success -> { _message.value = "Тест оновлено"; _test.value = r.data; onDone() }
+                is Result.Error -> _message.value = r.message
+                else -> {}
+            }
+            _isLoading.value = false
+        }
+    }
+
     fun clearMessage() { _message.value = null }
     fun resetResult() { _result.value = null }
 }

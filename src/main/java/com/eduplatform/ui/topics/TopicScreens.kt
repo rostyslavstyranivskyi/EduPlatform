@@ -37,6 +37,8 @@ fun TopicsListScreen(
     onLessonClick: (String) -> Unit = {},
     onLessonTestClick: (String) -> Unit = {},
     onManageTopics: () -> Unit = {},
+    onCreateTopicTest: (String) -> Unit = {},
+    onEditTopicTest: (String, String) -> Unit = { _, _ -> },
     onEnroll: (() -> Unit)? = null
 ) {
     val topics by viewModel.topics.collectAsState()
@@ -114,7 +116,10 @@ fun TopicsListScreen(
                                 onLessonClick = onLessonClick,
                                 onLessonTestClick = onLessonTestClick,
                                 onTestClick = { onTopicTest(topic.id) },
-                                onHeaderClick = { onTopicClick(topic.id) }
+                                onHeaderClick = { onTopicClick(topic.id) },
+                                isOwnCourse = isOwnCourse,
+                                onCreateTopicTest = onCreateTopicTest,
+                                onEditTopicTest = onEditTopicTest
                             )
                         }
 
@@ -182,7 +187,10 @@ private fun TopicCard(
     onLessonClick: (String) -> Unit,
     onLessonTestClick: (String) -> Unit,
     onTestClick: () -> Unit,
-    onHeaderClick: () -> Unit
+    onHeaderClick: () -> Unit,
+    isOwnCourse: Boolean = false,
+    onCreateTopicTest: (String) -> Unit = {},
+    onEditTopicTest: (String, String) -> Unit = { _, _ -> }
 ) {
     Card(Modifier.fillMaxWidth().padding(horizontal = 16.dp, vertical = 6.dp)) {
         Column(Modifier.padding(4.dp)) {
@@ -235,8 +243,22 @@ private fun TopicCard(
                             else MaterialTheme.colorScheme.secondary
                         )
                     },
+                    trailingContent = if (userRole == "teacher" && isOwnCourse) {
+                        {
+                            IconButton(onClick = { onEditTopicTest(topic.test.id, topic.id) }) {
+                                Icon(Icons.Default.Edit, "Редагувати тест", tint = MaterialTheme.colorScheme.primary)
+                            }
+                        }
+                    } else null,
                     modifier = Modifier.clickable(onClick = onTestClick)
                 )
+            } else if (userRole == "teacher" && isOwnCourse) {
+                HorizontalDivider()
+                TextButton(onClick = { onCreateTopicTest(topic.id) }, modifier = Modifier.fillMaxWidth()) {
+                    Icon(Icons.Default.Add, null)
+                    Spacer(Modifier.width(8.dp))
+                    Text("Додати тест до теми")
+                }
             }
         }
     }
@@ -318,7 +340,10 @@ fun TopicDetailScreen(
     lessonsViewModel: LessonsViewModel,
     onBack: () -> Unit,
     onLessonClick: (String) -> Unit,
-    onTopicTest: (String) -> Unit
+    onTopicTest: (String) -> Unit,
+    userRole: String = "student",
+    onCreateTopicTest: (String) -> Unit = {},
+    onEditTopicTest: (String, String) -> Unit = { _, _ -> }
 ) {
     val topics by viewModel.topics.collectAsState()
     val isLoading by viewModel.isLoading.collectAsState()
@@ -357,12 +382,33 @@ fun TopicDetailScreen(
                     }
                 }
 
-                topic.test?.let { test ->
-                    Spacer(Modifier.height(20.dp))
+                Spacer(Modifier.height(20.dp))
+
+                if (topic.test != null) {
                     Button(onClick = { onTopicTest(topic.id) }, modifier = Modifier.fillMaxWidth()) {
                         Icon(Icons.Default.Quiz, null)
                         Spacer(Modifier.width(8.dp))
                         Text("Пройти тест теми")
+                    }
+                    if (userRole == "teacher") {
+                        Spacer(Modifier.height(8.dp))
+                        OutlinedButton(
+                            onClick = { onEditTopicTest(topic.test.id, topic.id) },
+                            modifier = Modifier.fillMaxWidth()
+                        ) {
+                            Icon(Icons.Default.Edit, null)
+                            Spacer(Modifier.width(8.dp))
+                            Text("Редагувати тест теми")
+                        }
+                    }
+                } else if (userRole == "teacher") {
+                    OutlinedButton(
+                        onClick = { onCreateTopicTest(topic.id) },
+                        modifier = Modifier.fillMaxWidth()
+                    ) {
+                        Icon(Icons.Default.Add, null)
+                        Spacer(Modifier.width(8.dp))
+                        Text("Створити тест теми")
                     }
                 }
             }
@@ -378,7 +424,9 @@ fun ManageTopicsScreen(
     viewModel: TopicsViewModel,
     lessonsViewModel: LessonsViewModel,
     onBack: () -> Unit,
-    onAssignLessons: (String) -> Unit
+    onAssignLessons: (String) -> Unit,
+    onCreateTopicTest: (String) -> Unit = {},
+    onEditTopicTest: (String, String) -> Unit = { _, _ -> }
 ) {
     val topics by viewModel.topics.collectAsState()
     val isLoading by viewModel.isLoading.collectAsState()
@@ -444,12 +492,26 @@ fun ManageTopicsScreen(
                         Card(Modifier.fillMaxWidth().padding(horizontal = 16.dp, vertical = 4.dp)) {
                             ListItem(
                                 headlineContent = { Text(topic.title, fontWeight = FontWeight.SemiBold) },
-                                supportingContent = { Text("${topic.lessons.size} уроків") },
+                                supportingContent = {
+                                    Text(
+                                        "${topic.lessons.size} уроків" +
+                                        if (topic.test != null) " · тест є" else " · без тесту"
+                                    )
+                                },
                                 leadingContent = {
                                     Icon(Icons.Default.FolderOpen, null, tint = MaterialTheme.colorScheme.primary)
                                 },
                                 trailingContent = {
                                     Row {
+                                        if (topic.test != null) {
+                                            IconButton(onClick = { onEditTopicTest(topic.test.id, topic.id) }, modifier = Modifier.size(36.dp)) {
+                                                Icon(Icons.Default.Edit, "Редагувати тест", tint = MaterialTheme.colorScheme.primary)
+                                            }
+                                        } else {
+                                            IconButton(onClick = { onCreateTopicTest(topic.id) }, modifier = Modifier.size(36.dp)) {
+                                                Icon(Icons.Default.Quiz, "Додати тест", tint = MaterialTheme.colorScheme.outline)
+                                            }
+                                        }
                                         IconButton(onClick = { onAssignLessons(topic.id) }, modifier = Modifier.size(36.dp)) {
                                             Icon(Icons.Default.PlaylistAdd, "Призначити уроки")
                                         }

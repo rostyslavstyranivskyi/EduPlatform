@@ -225,6 +225,8 @@ fun CourseDetailScreen(
     onOpenLesson: (String) -> Unit = {},
     onOpenLessonTest: (String) -> Unit = {},
     onCreateLessonTest: (String) -> Unit = {},
+    onEditLessonTest: (String, String) -> Unit = { _, _ -> },
+    onEditCourseTest: (String, String) -> Unit = { _, _ -> },
     onCreateLesson: (String) -> Unit = {},
     onManageTopics: (String) -> Unit = {}
 ) {
@@ -272,6 +274,9 @@ fun CourseDetailScreen(
                     onOpenLesson = onOpenLesson,
                     onOpenLessonTest = onOpenLessonTest,
                     onCreateLessonTest = onCreateLessonTest,
+                    onEditLessonTest = onEditLessonTest,
+                    onCreateTest = onCreateTest,
+                    onEditCourseTest = onEditCourseTest,
                     onCreateLesson = onCreateLesson,
                     onManageTopics = onManageTopics
                 )
@@ -476,6 +481,9 @@ fun TeacherCourseManageScreen(
     onOpenLesson: (String) -> Unit,
     onOpenLessonTest: (String) -> Unit,
     onCreateLessonTest: (String) -> Unit,
+    onEditLessonTest: (String, String) -> Unit = { _, _ -> },
+    onCreateTest: (String) -> Unit = {},
+    onEditCourseTest: (String, String) -> Unit = { _, _ -> },
     onCreateLesson: (String) -> Unit,
     onManageTopics: (String) -> Unit = {}
 ) {
@@ -537,9 +545,14 @@ fun TeacherCourseManageScreen(
                     onOpenLesson = onOpenLesson,
                     onOpenLessonTest = onOpenLessonTest,
                     onCreateLessonTest = onCreateLessonTest,
+                    onEditLessonTest = onEditLessonTest,
                     onCreateLesson = { onCreateLesson(courseId) }
                 )
-                2 -> CourseLegacyTestTab(courseId, testViewModel)
+                2 -> CourseLegacyTestTab(
+                    courseId, testViewModel,
+                    onCreateCourseTest = { navCourseId -> onCreateTest(navCourseId) },
+                    onEditCourseTest = { testId, navCourseId -> onEditCourseTest(testId, navCourseId) }
+                )
             }
         }
     }
@@ -675,6 +688,7 @@ private fun CourseLessonsTab(
     onOpenLesson: (String) -> Unit,
     onOpenLessonTest: (String) -> Unit,
     onCreateLessonTest: (String) -> Unit,
+    onEditLessonTest: (String, String) -> Unit = { _, _ -> },
     onCreateLesson: () -> Unit
 ) {
     val blocks by viewModel.blocks.collectAsState()
@@ -719,15 +733,17 @@ private fun CourseLessonsTab(
                             },
                             trailingContent = {
                                 Row {
-                                    IconButton(onClick = {
-                                        if (block.test != null) onOpenLessonTest(block.lesson.id)
-                                        else onCreateLessonTest(block.lesson.id)
-                                    }) {
-                                        Icon(
-                                            Icons.Default.Quiz, "Тест уроку",
-                                            tint = if (block.test != null) MaterialTheme.colorScheme.primary
-                                            else MaterialTheme.colorScheme.outline
-                                        )
+                                    if (block.test != null) {
+                                        IconButton(onClick = { onEditLessonTest(block.test.id, block.lesson.id) }) {
+                                            Icon(Icons.Default.Edit, "Редагувати тест", tint = MaterialTheme.colorScheme.primary)
+                                        }
+                                        IconButton(onClick = { onOpenLessonTest(block.lesson.id) }) {
+                                            Icon(Icons.Default.Quiz, "Тест уроку", tint = MaterialTheme.colorScheme.primary)
+                                        }
+                                    } else {
+                                        IconButton(onClick = { onCreateLessonTest(block.lesson.id) }) {
+                                            Icon(Icons.Default.Quiz, "Тест уроку", tint = MaterialTheme.colorScheme.outline)
+                                        }
                                     }
                                     IconButton(onClick = { viewModel.deleteLesson(block.lesson.id, courseId) }) {
                                         Icon(Icons.Default.Delete, "Видалити", tint = MaterialTheme.colorScheme.error)
@@ -746,7 +762,9 @@ private fun CourseLessonsTab(
 @Composable
 private fun CourseLegacyTestTab(
     courseId: String,
-    viewModel: com.eduplatform.ui.tests.TestViewModel
+    viewModel: com.eduplatform.ui.tests.TestViewModel,
+    onCreateCourseTest: (String) -> Unit = {},
+    onEditCourseTest: (String, String) -> Unit = { _, _ -> }
 ) {
     val test by viewModel.test.collectAsState()
     val isLoading by viewModel.isLoading.collectAsState()
@@ -765,14 +783,32 @@ private fun CourseLegacyTestTab(
 
         when {
             isLoading -> LoadingScreen()
-            test != null -> Card(Modifier.fillMaxWidth()) {
-                ListItem(
-                    headlineContent = { Text(test!!.title) },
-                    supportingContent = { Text("Прохідний бал: ${test!!.passingScore}% · Питань: ${test!!.questions.size}") },
-                    leadingContent = { Icon(Icons.Default.Quiz, null, tint = MaterialTheme.colorScheme.primary) }
-                )
+            test != null -> {
+                Card(Modifier.fillMaxWidth()) {
+                    ListItem(
+                        headlineContent = { Text(test!!.title) },
+                        supportingContent = { Text("Прохідний бал: ${test!!.passingScore}% · Питань: ${test!!.questions.size}") },
+                        leadingContent = { Icon(Icons.Default.Quiz, null, tint = MaterialTheme.colorScheme.primary) },
+                        trailingContent = {
+                            IconButton(onClick = { onEditCourseTest(test!!.id, courseId) }) {
+                                Icon(Icons.Default.Edit, "Редагувати тест", tint = MaterialTheme.colorScheme.primary)
+                            }
+                        }
+                    )
+                }
             }
-            else -> EmptyScreen("Тест ще не створено")
+            else -> {
+                EmptyScreen("Тест ще не створено")
+                Spacer(Modifier.height(8.dp))
+                Button(
+                    onClick = { onCreateCourseTest(courseId) },
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Icon(Icons.Default.Add, null)
+                    Spacer(Modifier.width(8.dp))
+                    Text("Створити тест курсу")
+                }
+            }
         }
     }
 }

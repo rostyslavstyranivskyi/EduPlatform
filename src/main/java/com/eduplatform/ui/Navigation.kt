@@ -64,6 +64,15 @@ sealed class Screen(val route: String) {
     object CreateTopicTest : Screen("create_test_topic/{topicId}") {
         fun create(id: String) = "create_test_topic/$id"
     }
+    object EditTest : Screen("edit_test/{testId}/{courseId}") {
+        fun create(testId: String, courseId: String) = "edit_test/$testId/$courseId"
+    }
+    object EditLessonTest : Screen("edit_test_lesson/{testId}/{lessonId}") {
+        fun create(testId: String, lessonId: String) = "edit_test_lesson/$testId/$lessonId"
+    }
+    object EditTopicTest : Screen("edit_test_topic/{testId}/{topicId}") {
+        fun create(testId: String, topicId: String) = "edit_test_topic/$testId/$topicId"
+    }
     object ManageTopics : Screen("manage_topics/{courseId}") {
         fun create(id: String) = "manage_topics/$id"
     }

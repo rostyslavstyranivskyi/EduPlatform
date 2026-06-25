@@ -187,6 +187,8 @@ fun MainScaffold(
                     onOpenLesson = { navController.navigate(Screen.LessonDetail.create(it)) },
                     onOpenLessonTest = { navController.navigate(Screen.LessonTestScreen.create(it)) },
                     onCreateLessonTest = { navController.navigate(Screen.CreateLessonTest.create(it)) },
+                    onEditLessonTest = { testId, lessonId -> navController.navigate(Screen.EditLessonTest.create(testId, lessonId)) },
+                    onEditCourseTest = { testId, cId -> navController.navigate(Screen.EditTest.create(testId, cId)) },
                     onCreateLesson = { navController.navigate(Screen.CreateLesson.create(it)) },
                     onManageTopics = { navController.navigate(Screen.ManageTopics.create(it)) }
                 )
@@ -285,10 +287,11 @@ fun MainScaffold(
                     onLessonClick = { navController.navigate(Screen.LessonDetail.create(it)) },
                     onLessonTestClick = { navController.navigate(Screen.LessonTestScreen.create(it)) },
                     onManageTopics = { navController.navigate(Screen.ManageTopics.create(courseId)) },
+                    onCreateTopicTest = { topicId -> navController.navigate(Screen.CreateTopicTest.create(topicId)) },
+                    onEditTopicTest = { testId, topicId -> navController.navigate(Screen.EditTopicTest.create(testId, topicId)) },
                     onEnroll = if (!isOwnCourse) {
                         {
                             coursesVm.enroll(courseId)
-                            // Після запису перезавантажуємо блоки — сервер вже дасть доступ
                             lessonsVm.loadBlocks(courseId)
                         }
                     } else null
@@ -304,7 +307,10 @@ fun MainScaffold(
                     onBack = { navController.popBackStack() },
                     onLessonClick = { navController.navigate(Screen.LessonDetail.create(it)) },
                     onTopicTest = { navController.navigate(Screen.TopicTest.create(it)) },
-                    lessonsViewModel = lessonsVm
+                    lessonsViewModel = lessonsVm,
+                    userRole = userRole,
+                    onCreateTopicTest = { navController.navigate(Screen.CreateTopicTest.create(it)) },
+                    onEditTopicTest = { testId, tId -> navController.navigate(Screen.EditTopicTest.create(testId, tId)) }
                 )
             }
             composable(Screen.TopicTest.route) { back ->
@@ -317,6 +323,25 @@ fun MainScaffold(
                 val vm: TestViewModel = hiltViewModel()
                 CreateTestScreen(courseId = topicId, viewModel = vm, onBack = { navController.popBackStack() }, isTopicTest = true)
             }
+            composable(Screen.EditTopicTest.route) { back ->
+                val testId = back.arguments?.getString("testId") ?: return@composable
+                val topicId = back.arguments?.getString("topicId") ?: return@composable
+                val vm: TestViewModel = hiltViewModel()
+                EditTestScreen(viewModel = vm, onBack = { navController.popBackStack() }, topicId = topicId)
+            }
+            composable(Screen.EditLessonTest.route) { back ->
+                val testId = back.arguments?.getString("testId") ?: return@composable
+                val lessonId = back.arguments?.getString("lessonId") ?: return@composable
+                val vm: TestViewModel = hiltViewModel()
+                EditTestScreen(viewModel = vm, onBack = { navController.popBackStack() }, lessonId = lessonId)
+            }
+            composable(Screen.EditTest.route) { back ->
+                val testId = back.arguments?.getString("testId") ?: return@composable
+                val courseId = back.arguments?.getString("courseId") ?: return@composable
+                val vm: TestViewModel = hiltViewModel()
+                // Для курсового тесту testId == courseId для loadTest; зберігаємо за testId
+                EditTestScreen(viewModel = vm, onBack = { navController.popBackStack() }, testId = courseId)
+            }
             composable(Screen.ManageTopics.route) { back ->
                 val courseId = back.arguments?.getString("courseId") ?: return@composable
                 val vm: TopicsViewModel = hiltViewModel()
@@ -325,6 +350,8 @@ fun MainScaffold(
                     courseId = courseId, viewModel = vm,
                     onBack = { navController.popBackStack() },
                     onAssignLessons = { navController.navigate(Screen.AssignLessonsToTopic.create(it, courseId)) },
+                    onCreateTopicTest = { navController.navigate(Screen.CreateTopicTest.create(it)) },
+                    onEditTopicTest = { testId, topicId -> navController.navigate(Screen.EditTopicTest.create(testId, topicId)) },
                     lessonsViewModel = lessonsVm
                 )
             }

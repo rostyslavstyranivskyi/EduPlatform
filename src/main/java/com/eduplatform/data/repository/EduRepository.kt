@@ -195,6 +195,9 @@ class EduRepository @Inject constructor(
     suspend fun updateTest(id: String, req: CreateTestRequest): Result<Test> =
         safeApiCall({ api.updateTest(id, req) }) { it.data?.test ?: throw Exception("Failed") }
 
+    suspend fun updateTopicTest(topicId: String, req: CreateTestRequest): Result<Test> =
+        safeApiCall({ api.updateTopicTest(topicId, req) }) { it.data?.test ?: throw Exception("Failed") }
+
     suspend fun submitTest(testId: String, answers: List<Int>): Result<TestResult> =
         safeApiCall({ api.submitTest(testId, SubmitTestRequest(answers)) }) {
             it.data ?: throw Exception("Failed")

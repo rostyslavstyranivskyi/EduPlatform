@@ -148,6 +148,12 @@ interface EduApiService {
         @Body request: CreateTestRequest
     ): Response<TestResponse>
 
+    @PATCH("tests/topic/{topicId}")
+    suspend fun updateTopicTest(
+        @Path("topicId") topicId: String,
+        @Body request: CreateTestRequest
+    ): Response<TestResponse>
+
     @POST("tests/{id}/submit")
     suspend fun submitTest(
         @Path("id") id: String,
