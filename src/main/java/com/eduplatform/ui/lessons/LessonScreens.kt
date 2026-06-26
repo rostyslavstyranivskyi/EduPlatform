@@ -24,7 +24,8 @@ fun LessonsListScreen(
     userRole: String,
     onBack: () -> Unit,
     onLessonClick: (String) -> Unit,
-    onCreateLesson: () -> Unit
+    onCreateLesson: () -> Unit,
+    onEditLesson: (String) -> Unit = {}
 ) {
     val lessons by viewModel.lessons.collectAsState()
     val progress by viewModel.progress.collectAsState()
@@ -95,7 +96,7 @@ fun LessonsListScreen(
                             isCompleted = isCompleted,
                             userRole = userRole,
                             onClick = { onLessonClick(lesson.id) },
-                            onDelete = if (userRole == "teacher") {{ viewModel.deleteLesson(lesson.id, courseId) }} else null
+                            onEdit = if (userRole == "teacher") {{ onEditLesson(lesson.id) }} else null
                         )
                     }
                 }
@@ -114,7 +115,8 @@ fun BlocksListScreen(
     onLessonTestClick: (String) -> Unit,
     onCreateLesson: () -> Unit,
     onCreateLessonTest: (String) -> Unit,
-    onEditLessonTest: (String, String) -> Unit = { _, _ -> }
+    onEditLessonTest: (String, String) -> Unit = { _, _ -> },
+    onEditLesson: (String) -> Unit = {}
 ) {
     val blocks by viewModel.blocks.collectAsState()
     val progress by viewModel.progress.collectAsState()
@@ -192,7 +194,8 @@ fun BlocksListScreen(
                             onTestClick = { onLessonTestClick(block.lesson.id) },
                             onCreateTest = { onCreateLessonTest(block.lesson.id) },
                             onEditTest = { block.test?.let { t -> onEditLessonTest(t.id, block.lesson.id) } },
-                            onDelete = if (userRole == "teacher") {{ viewModel.deleteLesson(block.lesson.id, courseId) }} else null
+                            onDelete = null,
+                            onEditLesson = if (userRole == "teacher") {{ onEditLesson(block.lesson.id) }} else null
                         )
                     }
                 }
@@ -210,25 +213,14 @@ fun BlockListItem(
     onTestClick: () -> Unit,
     onCreateTest: () -> Unit,
     onEditTest: () -> Unit = {},
-    onDelete: (() -> Unit)?
+    onDelete: (() -> Unit)? = null,
+    onEditLesson: (() -> Unit)? = null
 ) {
-    var showDeleteDialog by remember { mutableStateOf(false) }
     val lesson = block.lesson
     val locked = lesson.locked && userRole == "student"
 
-    if (showDeleteDialog) {
-        AlertDialog(
-            onDismissRequest = { showDeleteDialog = false },
-            title = { Text("Видалити урок?") },
-            text = { Text("Цю дію не можна скасувати. Тест блоку та прогрес студентів також буде видалено.") },
-            confirmButton = {
-                TextButton(onClick = { showDeleteDialog = false; onDelete?.invoke() }) {
-                    Text("Видалити", color = MaterialTheme.colorScheme.error)
-                }
-            },
-            dismissButton = { TextButton(onClick = { showDeleteDialog = false }) { Text("Скасувати") } }
-        )
-    }
+    // Для вчителя клік на урок = редагування; для студента = перегляд
+    val effectiveLessonClick = if (userRole == "teacher" && onEditLesson != null) onEditLesson else onLessonClick
 
     Card(Modifier.fillMaxWidth().padding(horizontal = 12.dp, vertical = 4.dp)) {
         Column(Modifier.padding(4.dp)) {
@@ -250,18 +242,16 @@ fun BlockListItem(
                         else MaterialTheme.colorScheme.outline
                     )
                 },
-                trailingContent = if (onDelete != null) {
-                    {
-                        IconButton(onClick = { showDeleteDialog = true }, modifier = Modifier.size(32.dp)) {
-                            Icon(Icons.Default.Delete, null, tint = MaterialTheme.colorScheme.error)
-                        }
-                    }
+                trailingContent = if (userRole == "teacher") {
+                    { Icon(Icons.Default.ChevronRight, null, tint = MaterialTheme.colorScheme.outline) }
                 } else null,
-                modifier = Modifier.clickable(enabled = !locked, onClick = onLessonClick)
+                modifier = Modifier.clickable(enabled = !locked, onClick = effectiveLessonClick)
             )
 
             if (block.test != null) {
                 HorizontalDivider()
+                // Для вчителя клік на тест = редагування; для студента = проходження
+                val testEffectiveClick = if (userRole == "teacher") onEditTest else onTestClick
                 ListItem(
                     headlineContent = { Text(block.test.title, style = MaterialTheme.typography.bodyMedium) },
                     supportingContent = { Text("Прохідний бал: ${block.test.passingScore}%") },
@@ -275,16 +265,12 @@ fun BlockListItem(
                     },
                     trailingContent = if (userRole == "student" && !lessonCompleted) {
                         { Icon(Icons.Default.Lock, null, tint = MaterialTheme.colorScheme.outline) }
-                    } else if (userRole == "teacher") {
-                        {
-                            IconButton(onClick = onEditTest, modifier = Modifier.size(32.dp)) {
-                                Icon(Icons.Default.Edit, null, tint = MaterialTheme.colorScheme.primary)
-                            }
-                        }
-                    } else null,
+                    } else {
+                        { Icon(Icons.Default.ChevronRight, null, tint = MaterialTheme.colorScheme.outline) }
+                    },
                     modifier = Modifier.clickable(
                         enabled = userRole == "teacher" || lessonCompleted,
-                        onClick = onTestClick
+                        onClick = testEffectiveClick
                     )
                 )
             } else if (userRole == "teacher") {
@@ -305,23 +291,11 @@ fun LessonListItem(
     isCompleted: Boolean,
     userRole: String,
     onClick: () -> Unit,
-    onDelete: (() -> Unit)?
+    onDelete: (() -> Unit)? = null,
+    onEdit: (() -> Unit)? = null
 ) {
-    var showDeleteDialog by remember { mutableStateOf(false) }
-
-    if (showDeleteDialog) {
-        AlertDialog(
-            onDismissRequest = { showDeleteDialog = false },
-            title = { Text("Видалити урок?") },
-            text = { Text("Цю дію не можна скасувати. Прогрес студентів по цьому уроку також буде видалено.") },
-            confirmButton = {
-                TextButton(onClick = { showDeleteDialog = false; onDelete?.invoke() }) {
-                    Text("Видалити", color = MaterialTheme.colorScheme.error)
-                }
-            },
-            dismissButton = { TextButton(onClick = { showDeleteDialog = false }) { Text("Скасувати") } }
-        )
-    }
+    // Для вчителя клік = редагування; для студента клік = перегляд
+    val effectiveClick = if (userRole == "teacher" && onEdit != null) onEdit else onClick
 
     ListItem(
         headlineContent = {
@@ -335,21 +309,10 @@ fun LessonListItem(
                 tint = if (isCompleted) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.outline
             )
         },
-        trailingContent = {
-            Row {
-                if (isCompleted) {
-                    Icon(Icons.Default.CheckCircleOutline, null,
-                        tint = MaterialTheme.colorScheme.primary, modifier = Modifier.size(18.dp))
-                }
-                if (onDelete != null) {
-                    Spacer(Modifier.width(4.dp))
-                    IconButton(onClick = { showDeleteDialog = true }, modifier = Modifier.size(32.dp)) {
-                        Icon(Icons.Default.Delete, null, tint = MaterialTheme.colorScheme.error)
-                    }
-                }
-            }
-        },
-        modifier = androidx.compose.ui.Modifier.clickable(onClick = onClick)
+        trailingContent = if (userRole == "teacher") {
+            { Icon(Icons.Default.ChevronRight, null, tint = MaterialTheme.colorScheme.outline) }
+        } else null,
+        modifier = androidx.compose.ui.Modifier.clickable(onClick = effectiveClick)
     )
     HorizontalDivider()
 }
@@ -382,7 +345,8 @@ fun LessonDetailScreen(
     viewModel: LessonsViewModel,
     userRole: String,
     onBack: () -> Unit,
-    onTakeTest: ((String) -> Unit)? = null
+    onTakeTest: ((String) -> Unit)? = null,
+    onEditLesson: ((String) -> Unit)? = null
 ) {
     val lesson by viewModel.lesson.collectAsState()
     val lessonTest by viewModel.lessonTest.collectAsState()
@@ -396,7 +360,19 @@ fun LessonDetailScreen(
     }
 
     Scaffold(
-        topBar = { EduTopBar(title = lesson?.title ?: "Урок", onBack = onBack) }
+        topBar = {
+            EduTopBar(
+                title = lesson?.title ?: "Урок",
+                onBack = onBack,
+                actions = {
+                    if (userRole == "teacher" && onEditLesson != null) {
+                        IconButton(onClick = { onEditLesson(lessonId) }) {
+                            Icon(Icons.Default.Edit, "Редагувати урок")
+                        }
+                    }
+                }
+            )
+        }
     ) { padding ->
         when {
             isLoading -> LoadingScreen()
@@ -546,27 +522,101 @@ fun CreateLessonScreen(
     viewModel: LessonsViewModel,
     onBack: () -> Unit
 ) {
+    LessonFormScreen(
+        title = "Новий урок",
+        viewModel = viewModel,
+        initialLesson = null,
+        successWord = "створено",
+        onBack = onBack,
+        onSubmit = { req -> viewModel.createLesson(courseId, req) {} }
+    )
+}
+
+@Composable
+fun EditLessonScreen(
+    lessonId: String,
+    courseId: String,
+    viewModel: LessonsViewModel,
+    onBack: () -> Unit,
+    onDelete: (() -> Unit)? = null
+) {
+    val lesson by viewModel.lesson.collectAsState()
+    val isLoading by viewModel.isLoading.collectAsState()
+    var showDeleteDialog by remember { mutableStateOf(false) }
+
+    LaunchedEffect(lessonId) { viewModel.loadLesson(lessonId) }
+
+    if (showDeleteDialog) {
+        AlertDialog(
+            onDismissRequest = { showDeleteDialog = false },
+            title = { Text("Видалити урок?") },
+            text = { Text("Цю дію не можна скасувати. Прогрес студентів по цьому уроку також буде видалено.") },
+            confirmButton = {
+                TextButton(onClick = { showDeleteDialog = false; onDelete?.invoke() }) {
+                    Text("Видалити", color = MaterialTheme.colorScheme.error)
+                }
+            },
+            dismissButton = { TextButton(onClick = { showDeleteDialog = false }) { Text("Скасувати") } }
+        )
+    }
+
+    if (lesson == null && isLoading) {
+        Scaffold(topBar = { EduTopBar("Редагувати урок", onBack = onBack) }) { padding ->
+            Box(Modifier.fillMaxSize().padding(padding)) { LoadingScreen() }
+        }
+        return
+    }
+
+    LessonFormScreen(
+        title = "Редагувати урок",
+        viewModel = viewModel,
+        initialLesson = lesson,
+        successWord = "оновлено",
+        onBack = onBack,
+        onSubmit = { req -> viewModel.updateLesson(lessonId, courseId, req) {} },
+        onDelete = if (onDelete != null) { { showDeleteDialog = true } } else null
+    )
+}
+
+@Composable
+private fun LessonFormScreen(
+    title: String,
+    viewModel: LessonsViewModel,
+    initialLesson: Lesson?,
+    successWord: String,
+    onBack: () -> Unit,
+    onSubmit: (com.eduplatform.data.models.CreateLessonRequest) -> Unit,
+    onDelete: (() -> Unit)? = null
+) {
     val isLoading by viewModel.isLoading.collectAsState()
     val message by viewModel.message.collectAsState()
 
-    var title by remember { mutableStateOf("") }
-    var type by remember { mutableStateOf("text") }
-    var content by remember { mutableStateOf("") }
-    var videoUrl by remember { mutableStateOf("") }
-    var pdfUrl by remember { mutableStateOf("") }
+    var titleField by remember { mutableStateOf(initialLesson?.title ?: "") }
+    var type by remember { mutableStateOf(initialLesson?.type ?: "text") }
+    var content by remember { mutableStateOf(initialLesson?.content ?: "") }
+    var videoUrl by remember { mutableStateOf(initialLesson?.videoUrl ?: "") }
+    var pdfUrl by remember { mutableStateOf(initialLesson?.pdfUrl ?: "") }
 
     LaunchedEffect(message) {
-        if (message?.contains("створено") == true) {
+        if (message?.contains(successWord) == true) {
             kotlinx.coroutines.delay(500); onBack()
         }
     }
 
-    Scaffold(topBar = { EduTopBar("Новий урок", onBack = onBack) }) { padding ->
+    Scaffold(topBar = {
+        EduTopBar(title, onBack = onBack, actions = {
+            if (onDelete != null) {
+                IconButton(onClick = onDelete) {
+                    Icon(Icons.Default.Delete, "Видалити урок", tint = MaterialTheme.colorScheme.error)
+                }
+            }
+        })
+    }) { padding ->
         Column(
             Modifier.fillMaxSize().padding(padding)
                 .verticalScroll(rememberScrollState()).padding(16.dp)
         ) {
-            OutlinedTextField(value = title, onValueChange = { title = it },
+            OutlinedTextField(value = titleField, onValueChange = { titleField = it },
                 label = { Text("Назва уроку (2–255 символів)") },
                 modifier = Modifier.fillMaxWidth(), singleLine = true)
             Spacer(Modifier.height(12.dp))
@@ -598,7 +648,7 @@ fun CreateLessonScreen(
             message?.let {
                 Spacer(Modifier.height(8.dp))
                 Card(colors = CardDefaults.cardColors(
-                    containerColor = if (it.contains("створено")) MaterialTheme.colorScheme.secondaryContainer
+                    containerColor = if (it.contains(successWord)) MaterialTheme.colorScheme.secondaryContainer
                     else MaterialTheme.colorScheme.errorContainer)) {
                     Text(it, Modifier.padding(12.dp))
                 }
@@ -608,16 +658,16 @@ fun CreateLessonScreen(
             Button(
                 onClick = {
                     val req = com.eduplatform.data.models.CreateLessonRequest(
-                        title = title.trim(),
+                        title = titleField.trim(),
                         type = type,
                         content = content.takeIf { type == "text" && it.isNotBlank() },
                         videoUrl = videoUrl.takeIf { type == "video" && it.isNotBlank() },
                         pdfUrl = pdfUrl.takeIf { type == "pdf" && it.isNotBlank() }
                     )
-                    viewModel.createLesson(courseId, req) {}
+                    onSubmit(req)
                 },
                 modifier = Modifier.fillMaxWidth(),
-                enabled = !isLoading && title.length >= 2
+                enabled = !isLoading && titleField.length >= 2
             ) {
                 if (isLoading) CircularProgressIndicator(Modifier.size(20.dp))
                 else { Icon(Icons.Default.Save, null); Spacer(Modifier.width(8.dp)); Text("Зберегти урок") }

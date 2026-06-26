@@ -154,6 +154,20 @@ interface EduApiService {
         @Body request: CreateTestRequest
     ): Response<TestResponse>
 
+    @PATCH("tests/lesson/{lessonId}")
+    suspend fun updateLessonTest(
+        @Path("lessonId") lessonId: String,
+        @Body request: CreateTestRequest
+    ): Response<TestResponse>
+
+    @DELETE("tests/lesson/{lessonId}")
+    suspend fun deleteLessonTest(@Path("lessonId") lessonId: String): Response<GenericResponse>
+
+    // Видалення тесту теми. Бекенд має лише окремі маршрути за lessonId/topicId,
+    // спільного DELETE /tests/{id} не існує.
+    @DELETE("tests/topic/{topicId}")
+    suspend fun deleteTopicTest(@Path("topicId") topicId: String): Response<GenericResponse>
+
     @POST("tests/{id}/submit")
     suspend fun submitTest(
         @Path("id") id: String,

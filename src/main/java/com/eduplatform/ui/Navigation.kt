@@ -40,6 +40,9 @@ sealed class Screen(val route: String) {
     object CreateLesson : Screen("create_lesson/{courseId}") {
         fun create(id: String) = "create_lesson/$id"
     }
+    object EditLesson : Screen("edit_lesson/{lessonId}") {
+        fun create(id: String) = "edit_lesson/$id"
+    }
     object CreateTest : Screen("create_test/{courseId}") {
         fun create(id: String) = "create_test/$id"
     }

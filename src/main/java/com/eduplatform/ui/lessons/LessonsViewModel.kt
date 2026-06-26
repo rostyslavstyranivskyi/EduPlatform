@@ -149,6 +149,22 @@ class LessonsViewModel @Inject constructor(
         }
     }
 
+    fun updateLesson(id: String, courseId: String, req: CreateLessonRequest, onDone: () -> Unit = {}) {
+        viewModelScope.launch {
+            _isLoading.value = true
+            when (val r = repository.updateLesson(id, req)) {
+                is Result.Success -> {
+                    _message.value = "Урок оновлено"
+                    _lesson.value = r.data
+                    onDone()
+                }
+                is Result.Error -> _message.value = r.message
+                else -> {}
+            }
+            _isLoading.value = false
+        }
+    }
+
     fun deleteLesson(id: String, courseId: String) {
         viewModelScope.launch {
             when (repository.deleteLesson(id)) {

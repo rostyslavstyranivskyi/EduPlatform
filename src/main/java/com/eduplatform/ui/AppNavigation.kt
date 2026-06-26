@@ -131,7 +131,7 @@ fun MainScaffold(
     val currentRoute = navBackStackEntry?.destination?.route
 
     Scaffold(
-        
+
         contentWindowInsets = WindowInsets(0),
         bottomBar = {
             NavigationBar {
@@ -190,6 +190,7 @@ fun MainScaffold(
                     onEditLessonTest = { testId, lessonId -> navController.navigate(Screen.EditLessonTest.create(testId, lessonId)) },
                     onEditCourseTest = { testId, cId -> navController.navigate(Screen.EditTest.create(testId, cId)) },
                     onCreateLesson = { navController.navigate(Screen.CreateLesson.create(it)) },
+                    onEditLesson = { navController.navigate(Screen.EditLesson.create(it)) },
                     onManageTopics = { navController.navigate(Screen.ManageTopics.create(it)) }
                 )
             }
@@ -202,7 +203,8 @@ fun MainScaffold(
                     courseId = courseId, viewModel = vm, userRole = userRole,
                     onBack = { navController.popBackStack() },
                     onLessonClick = { navController.navigate(Screen.LessonDetail.create(it)) },
-                    onCreateLesson = { navController.navigate(Screen.CreateLesson.create(courseId)) }
+                    onCreateLesson = { navController.navigate(Screen.CreateLesson.create(courseId)) },
+                    onEditLesson = { navController.navigate(Screen.EditLesson.create(it)) }
                 )
             }
             composable(Screen.CourseBlocks.route) { back ->
@@ -214,7 +216,9 @@ fun MainScaffold(
                     onLessonClick = { navController.navigate(Screen.LessonDetail.create(it)) },
                     onLessonTestClick = { navController.navigate(Screen.LessonTestScreen.create(it)) },
                     onCreateLesson = { navController.navigate(Screen.CreateLesson.create(courseId)) },
-                    onCreateLessonTest = { navController.navigate(Screen.CreateLessonTest.create(it)) }
+                    onCreateLessonTest = { navController.navigate(Screen.CreateLessonTest.create(it)) },
+                    onEditLessonTest = { testId, lessonId -> navController.navigate(Screen.EditLessonTest.create(testId, lessonId)) },
+                    onEditLesson = { navController.navigate(Screen.EditLesson.create(it)) }
                 )
             }
             composable(Screen.LessonDetail.route) { back ->
@@ -225,13 +229,32 @@ fun MainScaffold(
                     viewModel = vm,
                     userRole = userRole,
                     onBack = { navController.popBackStack() },
-                    onTakeTest = { navController.navigate(Screen.LessonTestScreen.create(it)) }
+                    onTakeTest = { navController.navigate(Screen.LessonTestScreen.create(it)) },
+                    onEditLesson = { navController.navigate(Screen.EditLesson.create(it)) }
                 )
             }
             composable(Screen.CreateLesson.route) { back ->
                 val courseId = back.arguments?.getString("courseId") ?: return@composable
                 val vm: LessonsViewModel = hiltViewModel()
                 CreateLessonScreen(courseId = courseId, viewModel = vm, onBack = { navController.popBackStack() })
+            }
+            composable(Screen.EditLesson.route) { back ->
+                val lessonId = back.arguments?.getString("lessonId") ?: return@composable
+                val vm: LessonsViewModel = hiltViewModel()
+                // courseId потрібен лише для оновлення стейту після збереження
+                val lesson by vm.lesson.collectAsState()
+                LaunchedEffect(lessonId) { vm.loadLesson(lessonId) }
+                EditLessonScreen(
+                    lessonId = lessonId,
+                    courseId = lesson?.courseId ?: "",
+                    viewModel = vm,
+                    onBack = { navController.popBackStack() },
+                    onDelete = {
+                        val cId = lesson?.courseId ?: ""
+                        vm.deleteLesson(lessonId, cId)
+                        navController.popBackStack()
+                    }
+                )
             }
 
             // Tests

@@ -400,6 +400,7 @@ fun EditTestScreen(
     val existingTest by viewModel.test.collectAsState()
     val isLoading by viewModel.isLoading.collectAsState()
     val message by viewModel.message.collectAsState()
+    var showDeleteDialog by remember { mutableStateOf(false) }
 
     // Завантажуємо тест при відкритті екрану
     LaunchedEffect(testId, lessonId, topicId) {
@@ -409,6 +410,24 @@ fun EditTestScreen(
             // Для тесту курсу testId є courseId — використовуємо loadTest
             testId != null -> viewModel.loadTest(testId)
         }
+    }
+
+    if (showDeleteDialog) {
+        AlertDialog(
+            onDismissRequest = { showDeleteDialog = false },
+            title = { Text("Видалити тест?") },
+            text = { Text("Цю дію не можна скасувати. Результати студентів за цим тестом також буде видалено.") },
+            confirmButton = {
+                TextButton(onClick = {
+                    showDeleteDialog = false
+                    when {
+                        lessonId != null -> viewModel.deleteLessonTest(lessonId) { onBack() }
+                        topicId != null -> viewModel.deleteTopicTest(topicId) { onBack() }
+                    }
+                }) { Text("Видалити", color = MaterialTheme.colorScheme.error) }
+            },
+            dismissButton = { TextButton(onClick = { showDeleteDialog = false }) { Text("Скасувати") } }
+        )
     }
 
     var initialized by remember { mutableStateOf(false) }
@@ -442,7 +461,19 @@ fun EditTestScreen(
         }
     }
 
-    Scaffold(topBar = { EduTopBar("Редагувати тест", onBack = onBack) }) { padding ->
+    Scaffold(topBar = {
+        EduTopBar(
+            "Редагувати тест",
+            onBack = onBack,
+            actions = {
+                if (lessonId != null || topicId != null) {
+                    IconButton(onClick = { showDeleteDialog = true }) {
+                        Icon(Icons.Default.Delete, "Видалити тест", tint = MaterialTheme.colorScheme.error)
+                    }
+                }
+            }
+        )
+    }) { padding ->
         when {
             isLoading && !initialized -> LoadingScreen()
             else -> Column(
@@ -527,6 +558,7 @@ fun EditTestScreen(
                         val req = CreateTestRequest(testTitle.trim(), qs, passingScore.toIntOrNull() ?: 70)
                         val currentTestId = existingTest?.id
                         when {
+                            lessonId != null -> viewModel.updateLessonTest(lessonId, req) {}
                             topicId != null -> viewModel.updateTopicTest(topicId, req) {}
                             currentTestId != null -> viewModel.updateTest(currentTestId, req) {}
                         }

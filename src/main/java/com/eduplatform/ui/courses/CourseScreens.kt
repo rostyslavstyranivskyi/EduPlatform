@@ -1,5 +1,10 @@
 package com.eduplatform.ui.courses
 
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.expandVertically
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.shrinkVertically
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -14,10 +19,18 @@ import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.input.nestedscroll.NestedScrollConnection
+import androidx.compose.ui.input.nestedscroll.NestedScrollSource
+import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.platform.LocalContext
 import coil.compose.AsyncImage
+import coil.request.ImageRequest
 import com.eduplatform.data.models.*
 import com.eduplatform.ui.components.*
 import com.eduplatform.ui.lessons.lessonTypeLabel
@@ -35,9 +48,23 @@ fun CourseListScreen(
     val error by viewModel.error.collectAsState()
     val query by viewModel.searchQuery.collectAsState()
     val selectedPrice by viewModel.selectedPrice.collectAsState()
+    val selectedCategory by viewModel.selectedCategory.collectAsState()
+    val categories by viewModel.categories.collectAsState()
     val selectedSort by viewModel.selectedSort.collectAsState()
     val currentPage by viewModel.currentPage.collectAsState()
     val totalPages by viewModel.totalPages.collectAsState()
+
+    // Гортання вниз ховає панельки фільтрів, гортання вгору повертає їх назад
+    var filtersVisible by remember { mutableStateOf(true) }
+    val nestedScrollConnection = remember {
+        object : NestedScrollConnection {
+            override fun onPreScroll(available: Offset, source: NestedScrollSource): Offset {
+                if (available.y < -4f) filtersVisible = false
+                else if (available.y > 4f) filtersVisible = true
+                return Offset.Zero
+            }
+        }
+    }
 
     Scaffold(
         topBar = {
@@ -53,7 +80,12 @@ fun CourseListScreen(
             )
         }
     ) { padding ->
-        Column(Modifier.fillMaxSize().padding(padding)) {
+        Column(
+            Modifier
+                .fillMaxSize()
+                .padding(padding)
+                .nestedScroll(nestedScrollConnection)
+        ) {
             // Search
             OutlinedTextField(
                 value = query,
@@ -67,37 +99,71 @@ fun CourseListScreen(
                 } else null
             )
 
-            // Filters row
-            LazyRow(
-                contentPadding = PaddingValues(horizontal = 16.dp),
-                horizontalArrangement = Arrangement.spacedBy(8.dp)
+            AnimatedVisibility(
+                visible = filtersVisible,
+                enter = expandVertically() + fadeIn(),
+                exit = shrinkVertically() + fadeOut()
             ) {
-                item {
-                    listOf("any" to "Всі", "free" to "Безкоштовні", "paid" to "Платні").forEach { (v, l) ->
-                        FilterChip(
-                            selected = selectedPrice == v,
-                            onClick = { viewModel.setPrice(v) },
-                            label = { Text(l) },
-                            modifier = Modifier.padding(end = 4.dp)
-                        )
+                Column {
+                    // Filters row
+                    LazyRow(
+                        contentPadding = PaddingValues(horizontal = 16.dp),
+                        horizontalArrangement = Arrangement.spacedBy(8.dp)
+                    ) {
+                        item {
+                            listOf("any" to "Всі", "free" to "Безкоштовні", "paid" to "Платні").forEach { (v, l) ->
+                                FilterChip(
+                                    selected = selectedPrice == v,
+                                    onClick = { viewModel.setPrice(v) },
+                                    label = { Text(l) },
+                                    modifier = Modifier.padding(end = 4.dp)
+                                )
+                            }
+                        }
                     }
-                }
-            }
-            LazyRow(
-                contentPadding = PaddingValues(horizontal = 16.dp, vertical = 4.dp),
-                horizontalArrangement = Arrangement.spacedBy(8.dp)
-            ) {
-                item {
-                    listOf(
-                        "newest" to "Новіші", "popular" to "Популярні",
-                        "price_asc" to "Ціна ↑", "price_desc" to "Ціна ↓"
-                    ).forEach { (v, l) ->
-                        FilterChip(
-                            selected = selectedSort == v,
-                            onClick = { viewModel.setSort(v) },
-                            label = { Text(l) },
-                            modifier = Modifier.padding(end = 4.dp)
-                        )
+
+                    // Category filter row
+                    if (categories.isNotEmpty()) {
+                        LazyRow(
+                            contentPadding = PaddingValues(horizontal = 16.dp, vertical = 4.dp),
+                            horizontalArrangement = Arrangement.spacedBy(8.dp)
+                        ) {
+                            item {
+                                FilterChip(
+                                    selected = selectedCategory == null,
+                                    onClick = { viewModel.setCategory(null) },
+                                    label = { Text("Усі категорії") },
+                                    modifier = Modifier.padding(end = 4.dp)
+                                )
+                                categories.forEach { cat ->
+                                    FilterChip(
+                                        selected = selectedCategory == cat.id,
+                                        onClick = { viewModel.setCategory(cat.id) },
+                                        label = { Text(cat.name) },
+                                        modifier = Modifier.padding(end = 4.dp)
+                                    )
+                                }
+                            }
+                        }
+                    }
+
+                    LazyRow(
+                        contentPadding = PaddingValues(horizontal = 16.dp, vertical = 4.dp),
+                        horizontalArrangement = Arrangement.spacedBy(8.dp)
+                    ) {
+                        item {
+                            listOf(
+                                "newest" to "Новіші", "popular" to "Популярні",
+                                "price_asc" to "Ціна ↑", "price_desc" to "Ціна ↓"
+                            ).forEach { (v, l) ->
+                                FilterChip(
+                                    selected = selectedSort == v,
+                                    onClick = { viewModel.setSort(v) },
+                                    label = { Text(l) },
+                                    modifier = Modifier.padding(end = 4.dp)
+                                )
+                            }
+                        }
                     }
                 }
             }
@@ -145,10 +211,19 @@ fun CourseCard(course: Course, onClick: () -> Unit) {
         elevation = CardDefaults.cardElevation(2.dp)
     ) {
         if (course.coverImage != null) {
+            val context = LocalContext.current
             AsyncImage(
-                model = course.coverImage,
+                model = ImageRequest.Builder(context)
+                    .data(course.coverImage)
+                    .diskCacheKey(course.coverImage)
+                    .memoryCacheKey(course.coverImage)
+                    .crossfade(true)
+                    .build(),
                 contentDescription = null,
-                modifier = Modifier.fillMaxWidth().height(140.dp),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(200.dp)
+                    .clip(RoundedCornerShape(topStart = 12.dp, topEnd = 12.dp)),
                 contentScale = ContentScale.Crop
             )
         }
@@ -228,6 +303,7 @@ fun CourseDetailScreen(
     onEditLessonTest: (String, String) -> Unit = { _, _ -> },
     onEditCourseTest: (String, String) -> Unit = { _, _ -> },
     onCreateLesson: (String) -> Unit = {},
+    onEditLesson: (String) -> Unit = {},
     onManageTopics: (String) -> Unit = {}
 ) {
     val course by viewModel.course.collectAsState()
@@ -278,6 +354,7 @@ fun CourseDetailScreen(
                     onCreateTest = onCreateTest,
                     onEditCourseTest = onEditCourseTest,
                     onCreateLesson = onCreateLesson,
+                    onEditLesson = onEditLesson,
                     onManageTopics = onManageTopics
                 )
                 return
@@ -309,9 +386,18 @@ fun CourseDetailScreen(
                         .verticalScroll(rememberScrollState())
                 ) {
                     c.coverImage?.let { url ->
+                        val context = LocalContext.current
                         AsyncImage(
-                            model = url, contentDescription = null,
-                            modifier = Modifier.fillMaxWidth().height(200.dp),
+                            model = ImageRequest.Builder(context)
+                                .data(url)
+                                .diskCacheKey(url)
+                                .memoryCacheKey(url)
+                                .crossfade(true)
+                                .build(),
+                            contentDescription = null,
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .heightIn(max = 320.dp),
                             contentScale = ContentScale.Crop
                         )
                     }
@@ -390,7 +476,7 @@ fun CourseDetailScreen(
                             "teacher" -> {
                                 // Власний курс — управління; чужий — навчання як студент
                                 val isOwnCourse = c.teacherId == c.teacher?.id ||
-                                    (c.teacher == null) // fallback: якщо teacher null, вважаємо власним
+                                        (c.teacher == null) // fallback: якщо teacher null, вважаємо власним
                                 // Визначаємо, чи це курс поточного викладача, через teacherId.
                                 // Оскільки ми не маємо поточний userId прямо тут, перевіряємо
                                 // через TeacherCourseManageScreen — якщо lessonsViewModel != null,
@@ -485,6 +571,7 @@ fun TeacherCourseManageScreen(
     onCreateTest: (String) -> Unit = {},
     onEditCourseTest: (String, String) -> Unit = { _, _ -> },
     onCreateLesson: (String) -> Unit,
+    onEditLesson: (String) -> Unit = {},
     onManageTopics: (String) -> Unit = {}
 ) {
     val course by coursesViewModel.course.collectAsState()
@@ -546,7 +633,9 @@ fun TeacherCourseManageScreen(
                     onOpenLessonTest = onOpenLessonTest,
                     onCreateLessonTest = onCreateLessonTest,
                     onEditLessonTest = onEditLessonTest,
-                    onCreateLesson = { onCreateLesson(courseId) }
+                    onCreateLesson = { onCreateLesson(courseId) },
+                    onEditLesson = onEditLesson,
+                    testViewModel = testViewModel
                 )
                 2 -> CourseLegacyTestTab(
                     courseId, testViewModel,
@@ -689,7 +778,9 @@ private fun CourseLessonsTab(
     onOpenLessonTest: (String) -> Unit,
     onCreateLessonTest: (String) -> Unit,
     onEditLessonTest: (String, String) -> Unit = { _, _ -> },
-    onCreateLesson: () -> Unit
+    onCreateLesson: () -> Unit,
+    onEditLesson: (String) -> Unit = {},
+    testViewModel: com.eduplatform.ui.tests.TestViewModel? = null
 ) {
     val blocks by viewModel.blocks.collectAsState()
     val isLoading by viewModel.isLoading.collectAsState()
@@ -722,8 +813,8 @@ private fun CourseLessonsTab(
                             headlineContent = { Text(block.lesson.title) },
                             supportingContent = {
                                 Text("№${block.lesson.order + 1} · ${lessonTypeLabel(block.lesson.type)}" +
-                                    (if (block.lesson.topicId == null) " · без теми" else "") +
-                                    if (block.test != null) " · тест додано" else "")
+                                        (if (block.lesson.topicId == null) " · без теми" else "") +
+                                        if (block.test != null) " · тест додано" else "")
                             },
                             leadingContent = {
                                 Surface(
@@ -733,20 +824,22 @@ private fun CourseLessonsTab(
                             },
                             trailingContent = {
                                 Row {
+                                    // Тест уроку: одна іконка для редагування/створення —
+                                    // видалення тесту відбувається на екрані редагування (як у темі)
                                     if (block.test != null) {
                                         IconButton(onClick = { onEditLessonTest(block.test.id, block.lesson.id) }) {
-                                            Icon(Icons.Default.Edit, "Редагувати тест", tint = MaterialTheme.colorScheme.primary)
-                                        }
-                                        IconButton(onClick = { onOpenLessonTest(block.lesson.id) }) {
-                                            Icon(Icons.Default.Quiz, "Тест уроку", tint = MaterialTheme.colorScheme.primary)
+                                            Icon(Icons.Default.Quiz, "Редагувати тест", tint = MaterialTheme.colorScheme.secondary)
                                         }
                                     } else {
                                         IconButton(onClick = { onCreateLessonTest(block.lesson.id) }) {
-                                            Icon(Icons.Default.Quiz, "Тест уроку", tint = MaterialTheme.colorScheme.outline)
+                                            Icon(Icons.Default.Quiz, "Додати тест", tint = MaterialTheme.colorScheme.outline)
                                         }
                                     }
+                                    IconButton(onClick = { onEditLesson(block.lesson.id) }) {
+                                        Icon(Icons.Default.Edit, "Редагувати урок", tint = MaterialTheme.colorScheme.primary)
+                                    }
                                     IconButton(onClick = { viewModel.deleteLesson(block.lesson.id, courseId) }) {
-                                        Icon(Icons.Default.Delete, "Видалити", tint = MaterialTheme.colorScheme.error)
+                                        Icon(Icons.Default.Delete, "Видалити урок", tint = MaterialTheme.colorScheme.error)
                                     }
                                 }
                             },
@@ -775,7 +868,7 @@ private fun CourseLegacyTestTab(
         Card(colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant)) {
             Text(
                 "Це старий формат — один тест на весь курс. Зазвичай зручніше додавати тест безпосередньо до уроку: " +
-                    "відкрийте вкладку «Уроки» і натисніть іконку «Тест уроку» біля потрібного уроку.",
+                        "відкрийте вкладку «Уроки» і натисніть іконку «Тест уроку» біля потрібного уроку.",
                 Modifier.padding(12.dp), style = MaterialTheme.typography.bodySmall
             )
         }

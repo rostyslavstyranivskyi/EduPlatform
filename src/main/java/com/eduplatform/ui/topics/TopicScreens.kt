@@ -435,6 +435,7 @@ fun ManageTopicsScreen(
     val message by viewModel.message.collectAsState()
 
     var showCreateDialog by remember { mutableStateOf(false) }
+    var topicToEdit by remember { mutableStateOf<TopicWithLessons?>(null) }
     var topicToDelete by remember { mutableStateOf<TopicWithLessons?>(null) }
 
     LaunchedEffect(courseId) { viewModel.loadTopics(courseId) }
@@ -452,11 +453,28 @@ fun ManageTopicsScreen(
         )
     }
 
+    topicToEdit?.let { topic ->
+        EditTopicDialog(
+            initialTitle = topic.title,
+            initialDescription = topic.description,
+            onDismiss = { topicToEdit = null },
+            onConfirm = { title, description ->
+                viewModel.updateTopic(topic.id, courseId, title, description)
+                topicToEdit = null
+            }
+        )
+    }
+
     topicToDelete?.let { topic ->
         AlertDialog(
             onDismissRequest = { topicToDelete = null },
             title = { Text("Видалити тему?") },
-            text = { Text("Уроки теми \"${topic.title}\" не будуть видалені, але від'єднаються від теми.") },
+            text = {
+                Text(
+                    "Тему «${topic.title}» буде видалено. Уроки не видаляться, лише " +
+                            "від'єднаються від теми. Тест теми (якщо є) буде видалено разом з нею."
+                )
+            },
             confirmButton = {
                 TextButton(onClick = {
                     viewModel.deleteTopic(topic.id, courseId)
@@ -495,7 +513,7 @@ fun ManageTopicsScreen(
                                 supportingContent = {
                                     Text(
                                         "${topic.lessons.size} уроків" +
-                                        if (topic.test != null) " · тест є" else " · без тесту"
+                                                if (topic.test != null) " · тест є" else " · без тесту"
                                     )
                                 },
                                 leadingContent = {
@@ -503,23 +521,29 @@ fun ManageTopicsScreen(
                                 },
                                 trailingContent = {
                                     Row {
+                                        // Тест: іконка Quiz для редагування/додавання тесту
                                         if (topic.test != null) {
                                             IconButton(onClick = { onEditTopicTest(topic.test.id, topic.id) }, modifier = Modifier.size(36.dp)) {
-                                                Icon(Icons.Default.Edit, "Редагувати тест", tint = MaterialTheme.colorScheme.primary)
+                                                Icon(Icons.Default.Quiz, "Редагувати тест", tint = MaterialTheme.colorScheme.secondary)
                                             }
                                         } else {
                                             IconButton(onClick = { onCreateTopicTest(topic.id) }, modifier = Modifier.size(36.dp)) {
                                                 Icon(Icons.Default.Quiz, "Додати тест", tint = MaterialTheme.colorScheme.outline)
                                             }
                                         }
+                                        // Призначити уроки
                                         IconButton(onClick = { onAssignLessons(topic.id) }, modifier = Modifier.size(36.dp)) {
                                             Icon(Icons.Default.PlaylistAdd, "Призначити уроки")
                                         }
+                                        // Видалити тему
                                         IconButton(onClick = { topicToDelete = topic }, modifier = Modifier.size(36.dp)) {
-                                            Icon(Icons.Default.Delete, "Видалити", tint = MaterialTheme.colorScheme.error)
+                                            Icon(Icons.Default.Delete, "Видалити тему", tint = MaterialTheme.colorScheme.error)
                                         }
+                                        // Шеврон = підказка що картка клікабельна
+                                        Icon(Icons.Default.ChevronRight, null, tint = MaterialTheme.colorScheme.outline)
                                     }
-                                }
+                                },
+                                modifier = Modifier.clickable { topicToEdit = topic }
                             )
                         }
                     }
@@ -554,6 +578,38 @@ private fun CreateTopicDialog(
                 onClick = { onConfirm(title, description.takeIf { it.isNotBlank() }) },
                 enabled = title.isNotBlank()
             ) { Text("Створити") }
+        },
+        dismissButton = { TextButton(onClick = onDismiss) { Text("Скасувати") } }
+    )
+}
+
+@Composable
+private fun EditTopicDialog(
+    initialTitle: String,
+    initialDescription: String?,
+    onDismiss: () -> Unit,
+    onConfirm: (title: String, description: String?) -> Unit
+) {
+    var title by remember { mutableStateOf(initialTitle) }
+    var description by remember { mutableStateOf(initialDescription ?: "") }
+
+    AlertDialog(
+        onDismissRequest = onDismiss,
+        title = { Text("Редагувати тему") },
+        text = {
+            Column {
+                OutlinedTextField(value = title, onValueChange = { title = it },
+                    label = { Text("Назва теми") }, modifier = Modifier.fillMaxWidth(), singleLine = true)
+                Spacer(Modifier.height(8.dp))
+                OutlinedTextField(value = description, onValueChange = { description = it },
+                    label = { Text("Опис (необов'язково)") }, modifier = Modifier.fillMaxWidth())
+            }
+        },
+        confirmButton = {
+            TextButton(
+                onClick = { onConfirm(title, description.takeIf { it.isNotBlank() }) },
+                enabled = title.isNotBlank()
+            ) { Text("Зберегти") }
         },
         dismissButton = { TextButton(onClick = onDismiss) { Text("Скасувати") } }
     )

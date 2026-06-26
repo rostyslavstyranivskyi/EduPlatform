@@ -145,6 +145,47 @@ class TestViewModel @Inject constructor(
         }
     }
 
+    /** Редагування тесту уроку (за lessonId) */
+    fun updateLessonTest(lessonId: String, req: CreateTestRequest, onDone: () -> Unit) {
+        viewModelScope.launch {
+            _isLoading.value = true
+            when (val r = repository.updateLessonTest(lessonId, req)) {
+                is Result.Success -> { _message.value = "Тест оновлено"; _test.value = r.data; onDone() }
+                is Result.Error -> _message.value = r.message
+                else -> {}
+            }
+            _isLoading.value = false
+        }
+    }
+
+    // ── Delete ────────────────────────────────────────────────────────────────
+
+    /** Видалення тесту теми (за topicId) */
+    fun deleteTopicTest(topicId: String, onDone: () -> Unit = {}) {
+        viewModelScope.launch {
+            _isLoading.value = true
+            when (val r = repository.deleteTopicTest(topicId)) {
+                is Result.Success -> { _message.value = "Тест видалено"; _test.value = null; onDone() }
+                is Result.Error -> _message.value = r.message
+                else -> {}
+            }
+            _isLoading.value = false
+        }
+    }
+
+    /** Видалення тесту уроку (за lessonId) */
+    fun deleteLessonTest(lessonId: String, onDone: () -> Unit = {}) {
+        viewModelScope.launch {
+            _isLoading.value = true
+            when (val r = repository.deleteLessonTest(lessonId)) {
+                is Result.Success -> { _message.value = "Тест видалено"; _test.value = null; onDone() }
+                is Result.Error -> _message.value = r.message
+                else -> {}
+            }
+            _isLoading.value = false
+        }
+    }
+
     fun clearMessage() { _message.value = null }
     fun resetResult() { _result.value = null }
 }

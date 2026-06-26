@@ -198,10 +198,20 @@ class EduRepository @Inject constructor(
     suspend fun updateTopicTest(topicId: String, req: CreateTestRequest): Result<Test> =
         safeApiCall({ api.updateTopicTest(topicId, req) }) { it.data?.test ?: throw Exception("Failed") }
 
+    suspend fun updateLessonTest(lessonId: String, req: CreateTestRequest): Result<Test> =
+        safeApiCall({ api.updateLessonTest(lessonId, req) }) { it.data?.test ?: throw Exception("Failed") }
+
+    suspend fun deleteLessonTest(lessonId: String): Result<String> =
+        safeApiCall({ api.deleteLessonTest(lessonId) }) { it.message }
+
     suspend fun submitTest(testId: String, answers: List<Int>): Result<TestResult> =
         safeApiCall({ api.submitTest(testId, SubmitTestRequest(answers)) }) {
             it.data ?: throw Exception("Failed")
         }
+
+    /** Видалення тесту теми (за topicId) */
+    suspend fun deleteTopicTest(topicId: String): Result<String> =
+        safeApiCall({ api.deleteTopicTest(topicId) }) { it.message }
 
     // ── Progress ──────────────────────────────────────────────────────────────
 

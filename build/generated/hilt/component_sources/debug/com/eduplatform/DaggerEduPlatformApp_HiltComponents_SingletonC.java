@@ -413,45 +413,45 @@ public final class DaggerEduPlatformApp_HiltComponents_SingletonC {
 
     @IdentifierNameString
     private static final class LazyClassKeyProvider {
-      static String com_eduplatform_ui_teacher_TeacherViewModel = "com.eduplatform.ui.teacher.TeacherViewModel";
-
-      static String com_eduplatform_ui_lessons_LessonsViewModel = "com.eduplatform.ui.lessons.LessonsViewModel";
-
       static String com_eduplatform_ui_tests_TestViewModel = "com.eduplatform.ui.tests.TestViewModel";
-
-      static String com_eduplatform_ui_topics_TopicsViewModel = "com.eduplatform.ui.topics.TopicsViewModel";
-
-      static String com_eduplatform_ui_auth_AuthViewModel = "com.eduplatform.ui.auth.AuthViewModel";
-
-      static String com_eduplatform_ui_progress_ProgressViewModel = "com.eduplatform.ui.progress.ProgressViewModel";
 
       static String com_eduplatform_ui_admin_AdminViewModel = "com.eduplatform.ui.admin.AdminViewModel";
 
       static String com_eduplatform_ui_courses_CoursesViewModel = "com.eduplatform.ui.courses.CoursesViewModel";
 
-      @KeepFieldType
-      TeacherViewModel com_eduplatform_ui_teacher_TeacherViewModel2;
+      static String com_eduplatform_ui_progress_ProgressViewModel = "com.eduplatform.ui.progress.ProgressViewModel";
 
-      @KeepFieldType
-      LessonsViewModel com_eduplatform_ui_lessons_LessonsViewModel2;
+      static String com_eduplatform_ui_topics_TopicsViewModel = "com.eduplatform.ui.topics.TopicsViewModel";
+
+      static String com_eduplatform_ui_lessons_LessonsViewModel = "com.eduplatform.ui.lessons.LessonsViewModel";
+
+      static String com_eduplatform_ui_auth_AuthViewModel = "com.eduplatform.ui.auth.AuthViewModel";
+
+      static String com_eduplatform_ui_teacher_TeacherViewModel = "com.eduplatform.ui.teacher.TeacherViewModel";
 
       @KeepFieldType
       TestViewModel com_eduplatform_ui_tests_TestViewModel2;
-
-      @KeepFieldType
-      TopicsViewModel com_eduplatform_ui_topics_TopicsViewModel2;
-
-      @KeepFieldType
-      AuthViewModel com_eduplatform_ui_auth_AuthViewModel2;
-
-      @KeepFieldType
-      ProgressViewModel com_eduplatform_ui_progress_ProgressViewModel2;
 
       @KeepFieldType
       AdminViewModel com_eduplatform_ui_admin_AdminViewModel2;
 
       @KeepFieldType
       CoursesViewModel com_eduplatform_ui_courses_CoursesViewModel2;
+
+      @KeepFieldType
+      ProgressViewModel com_eduplatform_ui_progress_ProgressViewModel2;
+
+      @KeepFieldType
+      TopicsViewModel com_eduplatform_ui_topics_TopicsViewModel2;
+
+      @KeepFieldType
+      LessonsViewModel com_eduplatform_ui_lessons_LessonsViewModel2;
+
+      @KeepFieldType
+      AuthViewModel com_eduplatform_ui_auth_AuthViewModel2;
+
+      @KeepFieldType
+      TeacherViewModel com_eduplatform_ui_teacher_TeacherViewModel2;
     }
   }
 
@@ -515,34 +515,25 @@ public final class DaggerEduPlatformApp_HiltComponents_SingletonC {
     private static final class LazyClassKeyProvider {
       static String com_eduplatform_ui_progress_ProgressViewModel = "com.eduplatform.ui.progress.ProgressViewModel";
 
-      static String com_eduplatform_ui_tests_TestViewModel = "com.eduplatform.ui.tests.TestViewModel";
-
-      static String com_eduplatform_ui_courses_CoursesViewModel = "com.eduplatform.ui.courses.CoursesViewModel";
-
       static String com_eduplatform_ui_auth_AuthViewModel = "com.eduplatform.ui.auth.AuthViewModel";
-
-      static String com_eduplatform_ui_lessons_LessonsViewModel = "com.eduplatform.ui.lessons.LessonsViewModel";
 
       static String com_eduplatform_ui_teacher_TeacherViewModel = "com.eduplatform.ui.teacher.TeacherViewModel";
 
       static String com_eduplatform_ui_admin_AdminViewModel = "com.eduplatform.ui.admin.AdminViewModel";
 
+      static String com_eduplatform_ui_tests_TestViewModel = "com.eduplatform.ui.tests.TestViewModel";
+
       static String com_eduplatform_ui_topics_TopicsViewModel = "com.eduplatform.ui.topics.TopicsViewModel";
+
+      static String com_eduplatform_ui_lessons_LessonsViewModel = "com.eduplatform.ui.lessons.LessonsViewModel";
+
+      static String com_eduplatform_ui_courses_CoursesViewModel = "com.eduplatform.ui.courses.CoursesViewModel";
 
       @KeepFieldType
       ProgressViewModel com_eduplatform_ui_progress_ProgressViewModel2;
 
       @KeepFieldType
-      TestViewModel com_eduplatform_ui_tests_TestViewModel2;
-
-      @KeepFieldType
-      CoursesViewModel com_eduplatform_ui_courses_CoursesViewModel2;
-
-      @KeepFieldType
       AuthViewModel com_eduplatform_ui_auth_AuthViewModel2;
-
-      @KeepFieldType
-      LessonsViewModel com_eduplatform_ui_lessons_LessonsViewModel2;
 
       @KeepFieldType
       TeacherViewModel com_eduplatform_ui_teacher_TeacherViewModel2;
@@ -551,7 +542,16 @@ public final class DaggerEduPlatformApp_HiltComponents_SingletonC {
       AdminViewModel com_eduplatform_ui_admin_AdminViewModel2;
 
       @KeepFieldType
+      TestViewModel com_eduplatform_ui_tests_TestViewModel2;
+
+      @KeepFieldType
       TopicsViewModel com_eduplatform_ui_topics_TopicsViewModel2;
+
+      @KeepFieldType
+      LessonsViewModel com_eduplatform_ui_lessons_LessonsViewModel2;
+
+      @KeepFieldType
+      CoursesViewModel com_eduplatform_ui_courses_CoursesViewModel2;
     }
 
     private static final class SwitchingProvider<T> implements Provider<T> {
@@ -703,18 +703,19 @@ public final class DaggerEduPlatformApp_HiltComponents_SingletonC {
 
     @SuppressWarnings("unchecked")
     private void initialize(final ApplicationContextModule applicationContextModuleParam) {
-      this.tokenStorageProvider = DoubleCheck.provider(new SwitchingProvider<TokenStorage>(singletonCImpl, 5));
-      this.authInterceptorProvider = DoubleCheck.provider(new SwitchingProvider<AuthInterceptor>(singletonCImpl, 4));
-      this.persistentCookieJarProvider = DoubleCheck.provider(new SwitchingProvider<PersistentCookieJar>(singletonCImpl, 7));
-      this.sessionExpiredInterceptorProvider = DoubleCheck.provider(new SwitchingProvider<SessionExpiredInterceptor>(singletonCImpl, 6));
-      this.provideOkHttpClientProvider = DoubleCheck.provider(new SwitchingProvider<OkHttpClient>(singletonCImpl, 3));
-      this.provideRetrofitProvider = DoubleCheck.provider(new SwitchingProvider<Retrofit>(singletonCImpl, 2));
-      this.provideApiServiceProvider = DoubleCheck.provider(new SwitchingProvider<EduApiService>(singletonCImpl, 1));
-      this.eduRepositoryProvider = DoubleCheck.provider(new SwitchingProvider<EduRepository>(singletonCImpl, 0));
+      this.tokenStorageProvider = DoubleCheck.provider(new SwitchingProvider<TokenStorage>(singletonCImpl, 2));
+      this.authInterceptorProvider = DoubleCheck.provider(new SwitchingProvider<AuthInterceptor>(singletonCImpl, 1));
+      this.persistentCookieJarProvider = DoubleCheck.provider(new SwitchingProvider<PersistentCookieJar>(singletonCImpl, 4));
+      this.sessionExpiredInterceptorProvider = DoubleCheck.provider(new SwitchingProvider<SessionExpiredInterceptor>(singletonCImpl, 3));
+      this.provideOkHttpClientProvider = DoubleCheck.provider(new SwitchingProvider<OkHttpClient>(singletonCImpl, 0));
+      this.provideRetrofitProvider = DoubleCheck.provider(new SwitchingProvider<Retrofit>(singletonCImpl, 7));
+      this.provideApiServiceProvider = DoubleCheck.provider(new SwitchingProvider<EduApiService>(singletonCImpl, 6));
+      this.eduRepositoryProvider = DoubleCheck.provider(new SwitchingProvider<EduRepository>(singletonCImpl, 5));
     }
 
     @Override
-    public void injectEduPlatformApp(EduPlatformApp arg0) {
+    public void injectEduPlatformApp(EduPlatformApp eduPlatformApp) {
+      injectEduPlatformApp2(eduPlatformApp);
     }
 
     @Override
@@ -732,6 +733,11 @@ public final class DaggerEduPlatformApp_HiltComponents_SingletonC {
       return new ServiceCBuilder(singletonCImpl);
     }
 
+    private EduPlatformApp injectEduPlatformApp2(EduPlatformApp instance) {
+      EduPlatformApp_MembersInjector.injectOkHttpClient(instance, provideOkHttpClientProvider.get());
+      return instance;
+    }
+
     private static final class SwitchingProvider<T> implements Provider<T> {
       private final SingletonCImpl singletonCImpl;
 
@@ -746,29 +752,29 @@ public final class DaggerEduPlatformApp_HiltComponents_SingletonC {
       @Override
       public T get() {
         switch (id) {
-          case 0: // com.eduplatform.data.repository.EduRepository 
-          return (T) new EduRepository(singletonCImpl.provideApiServiceProvider.get(), singletonCImpl.tokenStorageProvider.get(), singletonCImpl.persistentCookieJarProvider.get());
-
-          case 1: // com.eduplatform.data.api.EduApiService 
-          return (T) AppModule_ProvideApiServiceFactory.provideApiService(singletonCImpl.provideRetrofitProvider.get());
-
-          case 2: // retrofit2.Retrofit 
-          return (T) AppModule_ProvideRetrofitFactory.provideRetrofit(singletonCImpl.provideOkHttpClientProvider.get());
-
-          case 3: // okhttp3.OkHttpClient 
+          case 0: // okhttp3.OkHttpClient 
           return (T) AppModule_ProvideOkHttpClientFactory.provideOkHttpClient(singletonCImpl.authInterceptorProvider.get(), singletonCImpl.sessionExpiredInterceptorProvider.get(), singletonCImpl.persistentCookieJarProvider.get());
 
-          case 4: // com.eduplatform.data.api.AuthInterceptor 
+          case 1: // com.eduplatform.data.api.AuthInterceptor 
           return (T) new AuthInterceptor(singletonCImpl.tokenStorageProvider.get());
 
-          case 5: // com.eduplatform.data.api.TokenStorage 
+          case 2: // com.eduplatform.data.api.TokenStorage 
           return (T) new TokenStorage(ApplicationContextModule_ProvideContextFactory.provideContext(singletonCImpl.applicationContextModule));
 
-          case 6: // com.eduplatform.data.api.SessionExpiredInterceptor 
+          case 3: // com.eduplatform.data.api.SessionExpiredInterceptor 
           return (T) new SessionExpiredInterceptor(singletonCImpl.tokenStorageProvider.get(), singletonCImpl.persistentCookieJarProvider.get());
 
-          case 7: // com.eduplatform.data.api.PersistentCookieJar 
+          case 4: // com.eduplatform.data.api.PersistentCookieJar 
           return (T) new PersistentCookieJar(ApplicationContextModule_ProvideContextFactory.provideContext(singletonCImpl.applicationContextModule));
+
+          case 5: // com.eduplatform.data.repository.EduRepository 
+          return (T) new EduRepository(singletonCImpl.provideApiServiceProvider.get(), singletonCImpl.tokenStorageProvider.get(), singletonCImpl.persistentCookieJarProvider.get());
+
+          case 6: // com.eduplatform.data.api.EduApiService 
+          return (T) AppModule_ProvideApiServiceFactory.provideApiService(singletonCImpl.provideRetrofitProvider.get());
+
+          case 7: // retrofit2.Retrofit 
+          return (T) AppModule_ProvideRetrofitFactory.provideRetrofit(singletonCImpl.provideOkHttpClientProvider.get());
 
           default: throw new AssertionError(id);
         }

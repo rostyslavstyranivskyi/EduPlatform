@@ -31,6 +31,9 @@ class CoursesViewModel @Inject constructor(
     private val _selectedPrice = MutableStateFlow("any")
     val selectedPrice: StateFlow<String> = _selectedPrice.asStateFlow()
 
+    private val _selectedCategory = MutableStateFlow<String?>(null)
+    val selectedCategory: StateFlow<String?> = _selectedCategory.asStateFlow()
+
     private val _selectedSort = MutableStateFlow("newest")
     val selectedSort: StateFlow<String> = _selectedSort.asStateFlow()
 
@@ -53,6 +56,7 @@ class CoursesViewModel @Inject constructor(
     }
 
     init {
+        loadCategories()
         loadCourses()
     }
 
@@ -69,6 +73,7 @@ class CoursesViewModel @Inject constructor(
     }
 
     fun setPrice(price: String) { _selectedPrice.value = price; _currentPage.value = 1; loadCourses() }
+    fun setCategory(categoryId: String?) { _selectedCategory.value = categoryId; _currentPage.value = 1; loadCourses() }
     fun setSort(sort: String) { _selectedSort.value = sort; _currentPage.value = 1; loadCourses() }
     fun nextPage() { if (_currentPage.value < _totalPages.value) { _currentPage.value++; loadCourses() } }
     fun prevPage() { if (_currentPage.value > 1) { _currentPage.value--; loadCourses() } }
@@ -77,7 +82,7 @@ class CoursesViewModel @Inject constructor(
         viewModelScope.launch {
             _isLoading.value = true
             val q = _searchQuery.value.takeIf { it.length >= 3 }
-            when (val r = repository.getCourses(q, null, _selectedPrice.value, _selectedSort.value, _currentPage.value)) {
+            when (val r = repository.getCourses(q, _selectedCategory.value, _selectedPrice.value, _selectedSort.value, _currentPage.value)) {
                 is Result.Success -> {
                     _courses.value = r.data.courses
                     _totalPages.value = r.data.totalPages
